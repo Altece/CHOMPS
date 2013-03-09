@@ -26,4 +26,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)saveSelectedImages:(id)sender {
+}
+
+- (IBAction)cancel:(id)sender {
+}
+
+- (IBAction)addMoreImages:(id)sender {
+}
 @end
