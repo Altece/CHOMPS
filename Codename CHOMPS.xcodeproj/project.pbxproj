@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
 		4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EDD16EBD80B005436D0 /* HomeViewController.m */; };
+		4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE016EBE86E005436D0 /* ImagePickerController.m */; };
 		B05088A216EB8D9800984484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A116EB8D9800984484 /* UIKit.framework */; };
 		B05088A416EB8D9800984484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A316EB8D9800984484 /* Foundation.framework */; };
 		B05088A616EB8D9800984484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A516EB8D9800984484 /* CoreGraphics.framework */; };
@@ -19,7 +20,6 @@
 		B05088B616EB8D9800984484 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B05088B516EB8D9800984484 /* Default.png */; };
 		B05088B816EB8D9800984484 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B05088B716EB8D9800984484 /* Default@2x.png */; };
 		B05088BA16EB8D9800984484 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B05088B916EB8D9800984484 /* Default-568h@2x.png */; };
-		B05088BD16EB8D9800984484 /* Codename_CHOMPS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B05088BB16EB8D9800984484 /* Codename_CHOMPS.xcdatamodeld */; };
 		B05088C516EB8D9800984484 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088C416EB8D9800984484 /* SenTestingKit.framework */; };
 		B05088C616EB8D9800984484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A116EB8D9800984484 /* UIKit.framework */; };
 		B05088C716EB8D9800984484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A316EB8D9800984484 /* Foundation.framework */; };
@@ -46,6 +46,8 @@
 		4CB37ED416EBD666005436D0 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		4CB37EDC16EBD80B005436D0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		4CB37EDD16EBD80B005436D0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		4CB37EDF16EBE86E005436D0 /* ImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerController.h; sourceTree = "<group>"; };
+		4CB37EE016EBE86E005436D0 /* ImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerController.m; sourceTree = "<group>"; };
 		B050889E16EB8D9800984484 /* Codename CHOMPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codename CHOMPS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05088A116EB8D9800984484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B05088A316EB8D9800984484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,7 +62,6 @@
 		B05088B516EB8D9800984484 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B05088B716EB8D9800984484 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B05088B916EB8D9800984484 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		B05088BC16EB8D9800984484 /* Codename_CHOMPS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Codename_CHOMPS.xcdatamodel; sourceTree = "<group>"; };
 		B05088C316EB8D9800984484 /* Codename CHOMPSTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Codename CHOMPSTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05088C416EB8D9800984484 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B05088CD16EB8D9800984484 /* Codename CHOMPSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Codename CHOMPSTests-Info.plist"; sourceTree = "<group>"; };
@@ -142,7 +143,8 @@
 				4CB37ED416EBD666005436D0 /* CameraViewController.m */,
 				4CB37EDC16EBD80B005436D0 /* HomeViewController.h */,
 				4CB37EDD16EBD80B005436D0 /* HomeViewController.m */,
-				B05088BB16EB8D9800984484 /* Codename_CHOMPS.xcdatamodeld */,
+				4CB37EDF16EBE86E005436D0 /* ImagePickerController.h */,
+				4CB37EE016EBE86E005436D0 /* ImagePickerController.m */,
 				B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */,
 				B05088AA16EB8D9800984484 /* Supporting Files */,
 			);
@@ -304,10 +306,10 @@
 			files = (
 				B05088B016EB8D9800984484 /* main.m in Sources */,
 				B05088B416EB8D9800984484 /* AppDelegate.m in Sources */,
-				B05088BD16EB8D9800984484 /* Codename_CHOMPS.xcdatamodeld in Sources */,
 				B05088E516EBD2CE00984484 /* UIImageValueTransformer.m in Sources */,
 				4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */,
 				4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */,
+				4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,11 +501,10 @@
 		B05088BB16EB8D9800984484 /* Codename_CHOMPS.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B05088BC16EB8D9800984484 /* Codename_CHOMPS.xcdatamodel */,
 			);
-			currentVersion = B05088BC16EB8D9800984484 /* Codename_CHOMPS.xcdatamodel */;
-			path = Codename_CHOMPS.xcdatamodeld;
-			sourceTree = "<group>";
+			name = Codename_CHOMPS.xcdatamodeld;
+			path = "/Users/michael/Projects/top_secret/CHOMPS/Codename CHOMPS/Codename_CHOMPS.xcdatamodeld";
+			sourceTree = "<absolute>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */

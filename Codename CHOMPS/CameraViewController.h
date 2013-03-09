@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CameraViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+- (IBAction)takePicture:(id)sender;
+- (IBAction)isDoneTakingPictures:(id)sender;
  
 @end

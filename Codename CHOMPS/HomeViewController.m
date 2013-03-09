@@ -75,18 +75,7 @@
 #pragma mark - Outlets
 
 - (IBAction)launchCamera:(id)sender
-{
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"iPhoneMainStoryboard" bundle:nil];
-    
-    CameraViewController *cameraView = [mainStoryboard instantiateViewControllerWithIdentifier:@"Camera"];
-    
-    UIImagePickerController *camera = [[UIImagePickerController alloc] init];
-    
-    [camera setDelegate:cameraView];
-    
-    [camera setSourceType:UIImagePickerControllerSourceTypeCamera];    
-    
-    [self presentViewController:camera animated:YES completion:nil];
-    
+{    
+    [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
 }
 @end
