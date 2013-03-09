@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CB9DA0F16EBC0A0000EA057 /* CameraDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB9DA0E16EBC0A0000EA057 /* CameraDelegate.m */; };
+		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
+		4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EDD16EBD80B005436D0 /* HomeViewController.m */; };
 		B05088A216EB8D9800984484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A116EB8D9800984484 /* UIKit.framework */; };
 		B05088A416EB8D9800984484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A316EB8D9800984484 /* Foundation.framework */; };
 		B05088A616EB8D9800984484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A516EB8D9800984484 /* CoreGraphics.framework */; };
@@ -40,8 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4CB9DA0D16EBC0A0000EA057 /* CameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraDelegate.h; sourceTree = "<group>"; };
-		4CB9DA0E16EBC0A0000EA057 /* CameraDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraDelegate.m; sourceTree = "<group>"; };
+		4CB37ED316EBD666005436D0 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		4CB37ED416EBD666005436D0 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		4CB37EDC16EBD80B005436D0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		4CB37EDD16EBD80B005436D0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		B050889E16EB8D9800984484 /* Codename CHOMPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codename CHOMPS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05088A116EB8D9800984484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B05088A316EB8D9800984484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,8 +134,10 @@
 			children = (
 				B05088B216EB8D9800984484 /* AppDelegate.h */,
 				B05088B316EB8D9800984484 /* AppDelegate.m */,
-				4CB9DA0D16EBC0A0000EA057 /* CameraDelegate.h */,
-				4CB9DA0E16EBC0A0000EA057 /* CameraDelegate.m */,
+				4CB37ED316EBD666005436D0 /* CameraViewController.h */,
+				4CB37ED416EBD666005436D0 /* CameraViewController.m */,
+				4CB37EDC16EBD80B005436D0 /* HomeViewController.h */,
+				4CB37EDD16EBD80B005436D0 /* HomeViewController.m */,
 				B05088BB16EB8D9800984484 /* Codename_CHOMPS.xcdatamodeld */,
 				B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */,
 				B05088AA16EB8D9800984484 /* Supporting Files */,
@@ -286,7 +291,8 @@
 				B05088B016EB8D9800984484 /* main.m in Sources */,
 				B05088B416EB8D9800984484 /* AppDelegate.m in Sources */,
 				B05088BD16EB8D9800984484 /* Codename_CHOMPS.xcdatamodeld in Sources */,
-				4CB9DA0F16EBC0A0000EA057 /* CameraDelegate.m in Sources */,
+				4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */,
+				4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
