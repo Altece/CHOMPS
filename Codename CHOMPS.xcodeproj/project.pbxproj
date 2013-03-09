@@ -24,6 +24,7 @@
 		B05088C816EB8D9800984484 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A716EB8D9800984484 /* CoreData.framework */; };
 		B05088D016EB8D9800984484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05088CE16EB8D9800984484 /* InfoPlist.strings */; };
 		B05088D316EB8D9800984484 /* Codename_CHOMPSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B05088D216EB8D9800984484 /* Codename_CHOMPSTests.m */; };
+		B05088DD16EB922B00984484 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088DC16EB922B00984484 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		B05088CF16EB8D9800984484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B05088D116EB8D9800984484 /* Codename_CHOMPSTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Codename_CHOMPSTests.h; sourceTree = "<group>"; };
 		B05088D216EB8D9800984484 /* Codename_CHOMPSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Codename_CHOMPSTests.m; sourceTree = "<group>"; };
+		B05088DC16EB922B00984484 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				B05088A416EB8D9800984484 /* Foundation.framework in Frameworks */,
 				B05088A616EB8D9800984484 /* CoreGraphics.framework in Frameworks */,
 				B05088A816EB8D9800984484 /* CoreData.framework in Frameworks */,
+				B05088DD16EB922B00984484 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +115,7 @@
 				B05088A316EB8D9800984484 /* Foundation.framework */,
 				B05088A516EB8D9800984484 /* CoreGraphics.framework */,
 				B05088A716EB8D9800984484 /* CoreData.framework */,
+				B05088DC16EB922B00984484 /* CoreMotion.framework */,
 				B05088C416EB8D9800984484 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
@@ -447,6 +451,7 @@
 				B05088D816EB8D9800984484 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B05088D916EB8D9800984484 /* Build configuration list for PBXNativeTarget "Codename CHOMPSTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +460,7 @@
 				B05088DB16EB8D9800984484 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
