@@ -8,7 +8,7 @@
 
 #import "UIImageValueTransformer.h"
 
-static UIImageValueTransformerQuiality imageQuality = ImageTransformerQuialityHigh;
+static UIImageValueTransformerQuiality imageQuality = UIImageValueTransformerQuialityHigh;
 
 /// A function to get the compression value for an
 /// ImageTransformerQuality value
@@ -17,13 +17,13 @@ static UIImageValueTransformerQuiality imageQuality = ImageTransformerQuialityHi
 static CGFloat compressionForImageQuality(UIImageValueTransformerQuiality quality)
 {
     switch (quality) {
-        case ImageTransformerQuialityHigh:
+        case UIImageValueTransformerQuialityHigh:
             return 1.0;
             
-        case ImageTransformerQuialityMedium:
+        case UIImageValueTransformerQuialityMedium:
             return 0.5;
             
-        case ImageTransformerQuialityLow:
+        case UIImageValueTransformerQuialityLow:
             return 0.0;
             
         default:
