@@ -26,6 +26,7 @@
 		B05088D016EB8D9800984484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05088CE16EB8D9800984484 /* InfoPlist.strings */; };
 		B05088D316EB8D9800984484 /* Codename_CHOMPSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B05088D216EB8D9800984484 /* Codename_CHOMPSTests.m */; };
 		B05088DD16EB922B00984484 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088DC16EB922B00984484 /* CoreMotion.framework */; };
+		B05088DF16EBC82200984484 /* iPhoneMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		B05088D116EB8D9800984484 /* Codename_CHOMPSTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Codename_CHOMPSTests.h; sourceTree = "<group>"; };
 		B05088D216EB8D9800984484 /* Codename_CHOMPSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Codename_CHOMPSTests.m; sourceTree = "<group>"; };
 		B05088DC16EB922B00984484 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneMainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				4CB9DA0D16EBC0A0000EA057 /* CameraDelegate.h */,
 				4CB9DA0E16EBC0A0000EA057 /* CameraDelegate.m */,
 				B05088BB16EB8D9800984484 /* Codename_CHOMPS.xcdatamodeld */,
+				B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */,
 				B05088AA16EB8D9800984484 /* Supporting Files */,
 			);
 			path = "Codename CHOMPS";
@@ -245,6 +248,7 @@
 				B05088B616EB8D9800984484 /* Default.png in Resources */,
 				B05088B816EB8D9800984484 /* Default@2x.png in Resources */,
 				B05088BA16EB8D9800984484 /* Default-568h@2x.png in Resources */,
+				B05088DF16EBC82200984484 /* iPhoneMainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
