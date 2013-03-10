@@ -77,6 +77,7 @@
 - (void)takePicture:(UITapGestureRecognizer *)reg
 {
     [camera takePicture];
+    
 }
 
 - (IBAction)isDoneTakingPictures:(id)sender

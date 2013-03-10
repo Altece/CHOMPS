@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeViewController : UITableViewController
+
 - (IBAction)launchCamera:(id)sender;
 
 @end
