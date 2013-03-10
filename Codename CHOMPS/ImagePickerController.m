@@ -51,24 +51,28 @@
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
     
+    // Core Data Fetch
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
     request.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
-    
     request.predicate = [NSPredicate predicateWithFormat:@"(timestamp == %@)", (NSDate *)[_takenImageObjectID objectAtIndex:indexPath.row]];
-    
     NSArray *data = [app.managedObjectContext executeFetchRequest:request error:nil];
     
+    // Image NSManagedObject
     Image *imageStore = [data objectAtIndex:0];
     
-    NSLog(@"%@", imageStore);
-    
+    // Gets UIImage from imageStore and sets imageStore to nil
     UIImage *image = [imageStore image];
+    imageStore = nil;
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    // Creates a UIImage and sets old image to nil, should be creating thumbnail
+    UIImage *thumb = [UIImage imageWithData:UIImageJPEGRepresentation(image, .1) scale:.1];
+    image = nil;
     
+    // Creates the ImageView from Image
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:thumb];
+    
+    // Sets it to the cells background view
     [cell setBackgroundView:imageView];
     
     return cell;

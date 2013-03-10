@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CameraViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
+@property (weak, nonatomic) IBOutlet UILabel *loadingText;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 - (IBAction)isDoneTakingPictures:(id)sender;
  

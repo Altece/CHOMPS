@@ -21,6 +21,7 @@
     UITapGestureRecognizer *takePicture;
     NSMutableArray *objectIDs;
     BOOL doneTakingImages;
+    UIView *shutter;
 }
 
 - (void)viewDidLoad
@@ -46,7 +47,15 @@
         [camera setWantsFullScreenLayout:YES];
         camera.cameraOverlayView = self.view;
         [camera setCameraCaptureMode:UIImagePickerControllerCameraCaptureModePhoto];
-        [self presentViewController:camera animated:YES completion:nil];
+        doneTakingImages = YES;
+        [self presentViewController:camera animated:NO completion:nil];
+        
+        shutter = [[UIView alloc] initWithFrame:CGRectMake(0, -self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+        
+        [shutter setBackgroundColor:[UIColor whiteColor]];
+        [self.view addSubview:shutter];
+        [self.view bringSubviewToFront:shutter];
+        
     }
 }
 
@@ -64,25 +73,35 @@
     
 }
 
+- (void)doneWithCamera
+{
+    [camera dismissViewControllerAnimated:YES completion:nil];
+    [_loadingActivity setHidden:NO];
+    [_loadingText setHidden:NO];
+    [_doneButton setHidden:YES];
+}
+
+
 #pragma mark - Image Proccessing
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    
     Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
-    
     [imageStore setImage:info[UIImagePickerControllerOriginalImage]];
-    
     NSDate *timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
-    
     [imageStore setTimestamp:timestamp];
-    
-     
     [app.managedObjectContext save:nil];
-    
     [objectIDs addObject:timestamp];
+    
+    if ([objectIDs count] >= 9) {
+        [self doneWithCamera];
+    }
+    
+    [UIView animateWithDuration:.1 animations:^{
+        [shutter setFrame:CGRectMake(0, -self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+    }];
     
 }
 
@@ -95,13 +114,14 @@
 
 - (void)takePicture:(UITapGestureRecognizer *)reg
 {
+    [UIView animateWithDuration:.1 animations:^{
+        [shutter setFrame:CGRectMake(0, -96, self.view.frame.size.width, self.view.frame.size.height)];
+    }];
     [camera takePicture];
-    
 }
 
 - (IBAction)isDoneTakingPictures:(id)sender
 {
-    doneTakingImages = YES;
-    [camera dismissViewControllerAnimated:NO completion:nil];
+    [self doneWithCamera];
 }
 @end
