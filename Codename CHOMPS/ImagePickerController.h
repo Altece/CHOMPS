@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImagePickerController : UICollectionViewController
+@interface ImagePickerController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
-
+@property (weak, nonatomic) NSMutableArray *takenImages;
 - (IBAction)saveSelectedImages:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (IBAction)addMoreImages:(id)sender;
