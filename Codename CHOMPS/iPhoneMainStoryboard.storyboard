@@ -102,7 +102,7 @@
                         <outlet property="doneButton" destination="cdx-hh-aub" id="U38-Pp-DfN"/>
                         <outlet property="loadingActivity" destination="WCM-dh-a3f" id="Q5O-x8-oHp"/>
                         <outlet property="loadingText" destination="h3X-NL-bCD" id="eAa-Fj-OXS"/>
-                        <segue destination="7vR-K8-0ug" kind="modal" identifier="toImagePicker" id="H6r-FD-OTH"/>
+                        <segue destination="zOX-TZ-Sit" kind="modal" identifier="toImagePicker" id="BWp-ue-pro"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grm-DM-4pA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,43 +110,51 @@
             <point key="canvasLocation" x="593" y="-644"/>
         </scene>
         <!--Image Picker Controller-->
-        <scene sceneID="exB-xR-sav">
+        <scene sceneID="99Q-Pb-F1C">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="7vR-K8-0ug" customClass="ImagePickerController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="xMz-eh-Bon">
-                        <rect key="frame" x="0.0" y="20" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cXC-CK-4pS">
-                            <size key="itemSize" width="90" height="90"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="image" id="ams-OZ-ixu">
-                                <rect key="frame" x="10" y="10" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="7vR-K8-0ug" id="l07-pD-e0o"/>
-                            <outlet property="delegate" destination="7vR-K8-0ug" id="IUj-qn-DTG"/>
-                        </connections>
-                    </collectionView>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                <viewController id="zOX-TZ-Sit" customClass="ImagePickerController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Py-5a-ArL">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YMW-ff-7Vo">
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="211" id="dMQ-uA-Y2S"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zWq-fU-cZ9">
+                                    <size key="itemSize" width="185" height="185"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="Xoi-lI-zoX">
+                                        <rect key="frame" x="10" y="13" width="185" height="185"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="185" height="185"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YMW-ff-7Vo" firstAttribute="trailing" secondItem="3Py-5a-ArL" secondAttribute="trailing" type="default" id="Hb3-Fv-Te3"/>
+                            <constraint firstItem="YMW-ff-7Vo" firstAttribute="leading" secondItem="3Py-5a-ArL" secondAttribute="leading" type="default" id="UuZ-fs-30R"/>
+                            <constraint firstItem="YMW-ff-7Vo" firstAttribute="top" secondItem="3Py-5a-ArL" secondAttribute="top" type="default" id="pWg-g8-Hfl"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="imageCollectionView" destination="xMz-eh-Bon" id="Ljc-3a-jBw"/>
+                        <outlet property="imageCollectionView" destination="YMW-ff-7Vo" id="5Qc-xw-FMZ"/>
                     </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p7V-vc-cxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffX-fN-1ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="-644"/>
+            <point key="canvasLocation" x="1058" y="-644"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hDV-eY-dT6">
@@ -169,6 +177,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraViewController.h"/>
             <relationships>
                 <relationship kind="action" name="isDoneTakingPictures:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="loadingActivity" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="loadingText" candidateClass="UILabel"/>
             </relationships>
@@ -179,7 +188,7 @@
                 <relationship kind="action" name="launchCamera:"/>
             </relationships>
         </class>
-        <class className="ImagePickerController" superclassName="UICollectionViewController">
+        <class className="ImagePickerController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerController.h"/>
             <relationships>
                 <relationship kind="action" name="addMoreImages:"/>
@@ -196,9 +205,6 @@
         </class>
         <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>

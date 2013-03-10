@@ -50,7 +50,7 @@
         doneTakingImages = YES;
         [self presentViewController:camera animated:NO completion:nil];
         
-        shutter = [[UIView alloc] initWithFrame:CGRectMake(0, -self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+        shutter = [[UIView alloc] initWithFrame:CGRectMake(0, -self.view.frame.size.height - 22, self.view.frame.size.width, self.view.frame.size.height)];
         
         [shutter setBackgroundColor:[UIColor whiteColor]];
         [self.view addSubview:shutter];
@@ -95,12 +95,12 @@
     [app.managedObjectContext save:nil];
     [objectIDs addObject:timestamp];
     
-    if ([objectIDs count] >= 9) {
+    if ([objectIDs count] >= 10) {
         [self doneWithCamera];
     }
     
     [UIView animateWithDuration:.1 animations:^{
-        [shutter setFrame:CGRectMake(0, -self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+        [shutter setFrame:CGRectMake(0, -self.view.frame.size.height - 22, self.view.frame.size.width, self.view.frame.size.height)];
     }];
     
 }
