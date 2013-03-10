@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Codename CHOMPS. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
+#import "AppDelegate.h"
 #import "CameraViewController.h"
 #import "ImagePickerController.h"
 
@@ -24,7 +26,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    _capturedImages = [[NSMutableArray alloc] init];
     takePicture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(takePicture:)];
     [self.view addGestureRecognizer:takePicture];
     doneTakingImages = NO;
@@ -33,7 +34,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     if (doneTakingImages) {
-        [self performSegueWithIdentifier:@"toImagePicker" sender:_capturedImages];
+        [self performSegueWithIdentifier:@"toImagePicker" sender:nil];
     } else {
         camera = [[UIImagePickerController alloc] init];
         [camera setSourceType:UIImagePickerControllerSourceTypeCamera];
@@ -54,9 +55,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    ImagePickerController *imagePicker = segue.destinationViewController;
-    
-    [imagePicker setTakenImages:_capturedImages];
+//    ImagePickerController *imagePicker = segue.destinationViewController;
     
 }
 
@@ -64,7 +63,14 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    [_capturedImages addObject:info];
+    
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    
+    NSEntityDescription *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
+    
+    
+    
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

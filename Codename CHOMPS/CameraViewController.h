@@ -10,8 +10,6 @@
 
 @interface CameraViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (strong, nonatomic) NSMutableArray *capturedImages;
-
 - (IBAction)isDoneTakingPictures:(id)sender;
  
 @end
