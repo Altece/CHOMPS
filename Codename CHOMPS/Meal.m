@@ -14,4 +14,18 @@
 @dynamic timestamp;
 @dynamic images;
 
+
+- (void)addImagesObject:(NSManagedObject *)value{
+    
+}
+- (void)removeImagesObject:(NSManagedObject *)value{
+    
+}
+- (void)addImages:(NSSet *)values{
+    
+}
+- (void)removeImages:(NSSet *)values{
+    
+}
+
 @end

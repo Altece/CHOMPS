@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeViewController : UITableViewController
+@property (nonatomic, retain) NSIndexPath* checkedIndexPath;
 
 - (IBAction)launchCamera:(id)sender;
 
 @end
+
+
