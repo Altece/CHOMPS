@@ -57,6 +57,7 @@
 
 - (IBAction)takePicture:(id)sender {
     [camera takePicture];
+    
 }
 
 
