@@ -14,6 +14,7 @@
 		4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE016EBE86E005436D0 /* ImagePickerController.m */; };
 		4CB37EE716EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE516EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld */; };
 		4CEFD38116ED417A00961754 /* ImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38016ED417A00961754 /* ImagePickerCell.m */; };
+		4CEFD38416ED42D000961754 /* MealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38316ED42D000961754 /* MealViewController.m */; };
 		B05088A216EB8D9800984484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A116EB8D9800984484 /* UIKit.framework */; };
 		B05088A416EB8D9800984484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A316EB8D9800984484 /* Foundation.framework */; };
 		B05088A616EB8D9800984484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A516EB8D9800984484 /* CoreGraphics.framework */; };
@@ -59,6 +60,8 @@
 		4CB37EE616EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Codename_CHOMPS.xcdatamodel; sourceTree = "<group>"; };
 		4CEFD37F16ED417A00961754 /* ImagePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerCell.h; sourceTree = "<group>"; };
 		4CEFD38016ED417A00961754 /* ImagePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerCell.m; sourceTree = "<group>"; };
+		4CEFD38216ED42D000961754 /* MealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealViewController.h; sourceTree = "<group>"; };
+		4CEFD38316ED42D000961754 /* MealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealViewController.m; sourceTree = "<group>"; };
 		B050889E16EB8D9800984484 /* Codename CHOMPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codename CHOMPS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05088A116EB8D9800984484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B05088A316EB8D9800984484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +161,8 @@
 				4CB37EE016EBE86E005436D0 /* ImagePickerController.m */,
 				4CEFD37F16ED417A00961754 /* ImagePickerCell.h */,
 				4CEFD38016ED417A00961754 /* ImagePickerCell.m */,
+				4CEFD38216ED42D000961754 /* MealViewController.h */,
+				4CEFD38316ED42D000961754 /* MealViewController.m */,
 				B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */,
 				B05088AA16EB8D9800984484 /* Supporting Files */,
 			);
@@ -331,6 +336,7 @@
 				4C21996916EC113900DD990B /* Image.m in Sources */,
 				4C21996A16EC113900DD990B /* Meal.m in Sources */,
 				4CEFD38116ED417A00961754 /* ImagePickerCell.m in Sources */,
+				4CEFD38416ED42D000961754 /* MealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
