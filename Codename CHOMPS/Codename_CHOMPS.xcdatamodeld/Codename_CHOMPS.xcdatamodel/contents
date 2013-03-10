@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Image" syncable="YES">
+    <entity name="Image" representedClassName="Image" syncable="YES">
         <attribute name="image" attributeType="Transformable" valueTransformerName="UIImageValueTransformer" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="timestamp" attributeType="Date" indexed="YES" syncable="YES"/>
     </entity>
-    <entity name="Meal" syncable="YES">
+    <entity name="Meal" representedClassName="Meal" syncable="YES">
         <attribute name="timestamp" attributeType="Date" indexed="YES" syncable="YES"/>
         <relationship name="images" toMany="YES" minCount="1" deletionRule="Cascade" destinationEntity="Image" syncable="YES"/>
     </entity>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C21996916EC113900DD990B /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996616EC113900DD990B /* Image.m */; };
+		4C21996A16EC113900DD990B /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996816EC113900DD990B /* Meal.m */; };
 		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
 		4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EDD16EBD80B005436D0 /* HomeViewController.m */; };
 		4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE016EBE86E005436D0 /* ImagePickerController.m */; };
@@ -43,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C21996516EC113900DD990B /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		4C21996616EC113900DD990B /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		4C21996716EC113900DD990B /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
+		4C21996816EC113900DD990B /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
 		4CB37ED316EBD666005436D0 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		4CB37ED416EBD666005436D0 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		4CB37EDC16EBD80B005436D0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -190,6 +196,10 @@
 			isa = PBXGroup;
 			children = (
 				4CB37EE516EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld */,
+				4C21996516EC113900DD990B /* Image.h */,
+				4C21996616EC113900DD990B /* Image.m */,
+				4C21996716EC113900DD990B /* Meal.h */,
+				4C21996816EC113900DD990B /* Meal.m */,
 				B05088E316EBD2CE00984484 /* UIImageValueTransformer.h */,
 				B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */,
 			);
@@ -313,6 +323,8 @@
 				4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */,
 				4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */,
 				4CB37EE716EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld in Sources */,
+				4C21996916EC113900DD990B /* Image.m in Sources */,
+				4C21996A16EC113900DD990B /* Meal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
