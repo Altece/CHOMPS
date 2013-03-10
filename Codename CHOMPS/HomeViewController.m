@@ -8,14 +8,18 @@
 
 #import "HomeViewController.h"
 #import "CameraViewController.h"
+#import "HomeViewHeader.h"
+#import "HomeViewCell.h"
+#import "AppDelegate.h"
 
 @interface HomeViewController ()
 
 @end
 
-@implementation HomeViewController
+static NSString *HOME_CELL = @"HomeViewCell";
+static NSString *HOME_HEADER = @"HomeViewHeader";
 
-NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
+@implementation HomeViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,20 +34,23 @@ NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
 {
     [super viewDidLoad];
     
-    pictureDates = [[NSMutableArray alloc] init]; /// Initializing the array
+    NSDate *currentDate = [NSDate date];
     
-    NSDate *currentDate = NSDate.date;
-     
+    self.navigationItem.title = @"My Meals";
     
-    [pictureDates addObject:@"March, 8th"];
+    // table view setup
+    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.separatorColor = [UIColor blackColor];
     
-    self.navigationItem.title = @"CHOMPS: Recent Pictures";
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    // table resue registration
+    [self.tableView registerNib:[UINib nibWithNibName:@"HomeViewCell" bundle:nil] forCellReuseIdentifier:HOME_CELL];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HomeViewHeader" bundle:nil] forHeaderFooterViewReuseIdentifier:HOME_HEADER];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
@@ -55,32 +62,52 @@ NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
 
 #pragma mark - Table view data source
 
+/// Number of Sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
+/// Number of Rows
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return pictureDates.count;
+    NSManagedObjectContext *moc = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Meal"];
+    
+    return 5;//[moc countForFetchRequest:req error:nil];
 }
 
+/// Get Cell for a given NSIndexPath
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
-    static NSString *CellIdentifier = @"Cell";    
+    HomeViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HOME_CELL];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
-    }
     
-    // Set up the cell...
-    NSString *cellValue = [pictureDates objectAtIndex:indexPath.row];
-    cell.text = cellValue;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return [HomeViewHeader height];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSString *title = nil;
+    switch (section) {
+        case 0:
+            title = @"My Meals";
+            break;
+            
+        default:
+            title = @"PIZZA! :D";
+            break;
+    }
+    HomeViewHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HOME_HEADER];
+    header.title.text = title;
+    
+    return header;
 }
 
 
@@ -89,6 +116,11 @@ NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [HomeViewCell height];
 }
 
 #pragma mark - Outlets

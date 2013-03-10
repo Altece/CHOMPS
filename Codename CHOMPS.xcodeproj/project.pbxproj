@@ -32,6 +32,11 @@
 		B05088DD16EB922B00984484 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088DC16EB922B00984484 /* CoreMotion.framework */; };
 		B05088DF16EBC82200984484 /* iPhoneMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */; };
 		B05088E516EBD2CE00984484 /* UIImageValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */; };
+		B0EBA23516ED137100BD2354 /* HomeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EBA23416ED137100BD2354 /* HomeViewCell.m */; };
+		B0EBA23716ED18C700BD2354 /* HomeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0EBA23616ED18C700BD2354 /* HomeViewCell.xib */; };
+		B0EBA23A16ED268500BD2354 /* UIImage+ColorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EBA23916ED268500BD2354 /* UIImage+ColorImage.m */; };
+		B0EBA23D16ED3C3600BD2354 /* HomeViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0EBA23C16ED3C3600BD2354 /* HomeViewHeader.xib */; };
+		B0EBA24016ED3CDE00BD2354 /* HomeViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EBA23F16ED3CDE00BD2354 /* HomeViewHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +85,14 @@
 		B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneMainStoryboard.storyboard; sourceTree = "<group>"; };
 		B05088E316EBD2CE00984484 /* UIImageValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageValueTransformer.h; sourceTree = "<group>"; };
 		B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageValueTransformer.m; sourceTree = "<group>"; };
+		B0EBA23316ED137100BD2354 /* HomeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewCell.h; sourceTree = "<group>"; };
+		B0EBA23416ED137100BD2354 /* HomeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewCell.m; sourceTree = "<group>"; };
+		B0EBA23616ED18C700BD2354 /* HomeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewCell.xib; sourceTree = "<group>"; };
+		B0EBA23816ED268500BD2354 /* UIImage+ColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorImage.h"; sourceTree = "<group>"; };
+		B0EBA23916ED268500BD2354 /* UIImage+ColorImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorImage.m"; sourceTree = "<group>"; };
+		B0EBA23C16ED3C3600BD2354 /* HomeViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewHeader.xib; sourceTree = "<group>"; };
+		B0EBA23E16ED3CDE00BD2354 /* HomeViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewHeader.h; sourceTree = "<group>"; };
+		B0EBA23F16ED3CDE00BD2354 /* HomeViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewHeader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +164,9 @@
 				4CB37ED416EBD666005436D0 /* CameraViewController.m */,
 				4CB37EDC16EBD80B005436D0 /* HomeViewController.h */,
 				4CB37EDD16EBD80B005436D0 /* HomeViewController.m */,
+				B0EBA23B16ED3C1C00BD2354 /* Home View Table */,
+				B0EBA23816ED268500BD2354 /* UIImage+ColorImage.h */,
+				B0EBA23916ED268500BD2354 /* UIImage+ColorImage.m */,
 				4CB37EDF16EBE86E005436D0 /* ImagePickerController.h */,
 				4CB37EE016EBE86E005436D0 /* ImagePickerController.m */,
 				B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */,
@@ -204,6 +220,19 @@
 				B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		B0EBA23B16ED3C1C00BD2354 /* Home View Table */ = {
+			isa = PBXGroup;
+			children = (
+				B0EBA23316ED137100BD2354 /* HomeViewCell.h */,
+				B0EBA23416ED137100BD2354 /* HomeViewCell.m */,
+				B0EBA23616ED18C700BD2354 /* HomeViewCell.xib */,
+				B0EBA23E16ED3CDE00BD2354 /* HomeViewHeader.h */,
+				B0EBA23F16ED3CDE00BD2354 /* HomeViewHeader.m */,
+				B0EBA23C16ED3C3600BD2354 /* HomeViewHeader.xib */,
+			);
+			name = "Home View Table";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +311,8 @@
 				B05088B816EB8D9800984484 /* Default@2x.png in Resources */,
 				B05088BA16EB8D9800984484 /* Default-568h@2x.png in Resources */,
 				B05088DF16EBC82200984484 /* iPhoneMainStoryboard.storyboard in Resources */,
+				B0EBA23716ED18C700BD2354 /* HomeViewCell.xib in Resources */,
+				B0EBA23D16ED3C3600BD2354 /* HomeViewHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +356,9 @@
 				4CB37EE716EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld in Sources */,
 				4C21996916EC113900DD990B /* Image.m in Sources */,
 				4C21996A16EC113900DD990B /* Meal.m in Sources */,
+				B0EBA23516ED137100BD2354 /* HomeViewCell.m in Sources */,
+				B0EBA23A16ED268500BD2354 /* UIImage+ColorImage.m in Sources */,
+				B0EBA24016ED3CDE00BD2354 /* HomeViewHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
