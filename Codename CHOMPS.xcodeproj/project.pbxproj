@@ -29,6 +29,9 @@
 		B05088DD16EB922B00984484 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088DC16EB922B00984484 /* CoreMotion.framework */; };
 		B05088DF16EBC82200984484 /* iPhoneMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */; };
 		B05088E516EBD2CE00984484 /* UIImageValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */; };
+		B0EBA1FA16EC0D4500BD2354 /* Codename_CHOMPS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0EBA1F816EC0D4500BD2354 /* Codename_CHOMPS.xcdatamodeld */; };
+		B0EBA1FD16EC0D7900BD2354 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EBA1FC16EC0D7900BD2354 /* Meal.m */; };
+		B0EBA20016EC0D8500BD2354 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EBA1FF16EC0D8500BD2354 /* Image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,11 @@
 		B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneMainStoryboard.storyboard; sourceTree = "<group>"; };
 		B05088E316EBD2CE00984484 /* UIImageValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageValueTransformer.h; sourceTree = "<group>"; };
 		B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageValueTransformer.m; sourceTree = "<group>"; };
+		B0EBA1F916EC0D4500BD2354 /* Codename_CHOMPS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Codename_CHOMPS.xcdatamodel; sourceTree = "<group>"; };
+		B0EBA1FB16EC0D7900BD2354 /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
+		B0EBA1FC16EC0D7900BD2354 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
+		B0EBA1FE16EC0D8500BD2354 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		B0EBA1FF16EC0D8500BD2354 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +195,11 @@
 		B05088E216EBD18A00984484 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B05088BB16EB8D9800984484 /* Codename_CHOMPS.xcdatamodeld */,
+				B0EBA1F816EC0D4500BD2354 /* Codename_CHOMPS.xcdatamodeld */,
+				B0EBA1FE16EC0D8500BD2354 /* Image.h */,
+				B0EBA1FF16EC0D8500BD2354 /* Image.m */,
+				B0EBA1FB16EC0D7900BD2354 /* Meal.h */,
+				B0EBA1FC16EC0D7900BD2354 /* Meal.m */,
 				B05088E316EBD2CE00984484 /* UIImageValueTransformer.h */,
 				B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */,
 			);
@@ -310,6 +322,9 @@
 				4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */,
 				4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */,
 				4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */,
+				B0EBA1FA16EC0D4500BD2354 /* Codename_CHOMPS.xcdatamodeld in Sources */,
+				B0EBA1FD16EC0D7900BD2354 /* Meal.m in Sources */,
+				B0EBA20016EC0D8500BD2354 /* Image.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,13 +513,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B05088BB16EB8D9800984484 /* Codename_CHOMPS.xcdatamodeld */ = {
+		B0EBA1F816EC0D4500BD2354 /* Codename_CHOMPS.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B0EBA1F916EC0D4500BD2354 /* Codename_CHOMPS.xcdatamodel */,
 			);
-			name = Codename_CHOMPS.xcdatamodeld;
-			path = "/Users/michael/Projects/top_secret/CHOMPS/Codename CHOMPS/Codename_CHOMPS.xcdatamodeld";
-			sourceTree = "<absolute>";
+			currentVersion = B0EBA1F916EC0D4500BD2354 /* Codename_CHOMPS.xcdatamodel */;
+			path = Codename_CHOMPS.xcdatamodeld;
+			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
