@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YNP-kX-WwT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YNP-kX-WwT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -33,17 +33,17 @@
                     </navigationItem>
                     <connections>
                         <segue destination="oCM-Dw-4p0" kind="modal" identifier="cameraSegue" modalTransitionStyle="coverVertical" animates="NO" id="8a4-xv-MjK"/>
-                        <segue destination="Ijt-kR-EQj" kind="push" id="tMZ-Ax-oON"/>
+                        <segue destination="Ijt-kR-EQj" kind="push" identifier="mealSegue" id="tMZ-Ax-oON"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQ4-eH-skw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="56" y="20"/>
         </scene>
-        <!--View Controller - Meal Viewer-->
+        <!--Meal View Controller - Meal Viewer-->
         <scene sceneID="dnE-H3-rk3">
             <objects>
-                <viewController storyboardIdentifier="Meal" title="Meal Viewer" id="Ijt-kR-EQj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Meal" title="Meal Viewer" id="Ijt-kR-EQj" customClass="MealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lp7-HI-zld">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -169,6 +169,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraViewController.h"/>
             <relationships>
                 <relationship kind="action" name="isDoneTakingPictures:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="loadingActivity" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="loadingText" candidateClass="UILabel"/>
             </relationships>
@@ -187,6 +188,9 @@
                 <relationship kind="action" name="saveSelectedImages:"/>
                 <relationship kind="outlet" name="imageCollectionView" candidateClass="UICollectionView"/>
             </relationships>
+        </class>
+        <class className="MealViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MealViewController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C6AA82716ED386B000AA9DD /* MealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AA82616ED386B000AA9DD /* MealViewController.m */; };
 		4C21996916EC113900DD990B /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996616EC113900DD990B /* Image.m */; };
 		4C21996A16EC113900DD990B /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996816EC113900DD990B /* Meal.m */; };
 		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C6AA82516ED386B000AA9DD /* MealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MealViewController.h; path = ../MealViewController.h; sourceTree = "<group>"; };
+		2C6AA82616ED386B000AA9DD /* MealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MealViewController.m; path = ../MealViewController.m; sourceTree = "<group>"; };
 		4C21996516EC113900DD990B /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		4C21996616EC113900DD990B /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		4C21996716EC113900DD990B /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				4CB37EDD16EBD80B005436D0 /* HomeViewController.m */,
 				4CB37EDF16EBE86E005436D0 /* ImagePickerController.h */,
 				4CB37EE016EBE86E005436D0 /* ImagePickerController.m */,
+				2C6AA82516ED386B000AA9DD /* MealViewController.h */,
+				2C6AA82616ED386B000AA9DD /* MealViewController.m */,
 				B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */,
 				B05088AA16EB8D9800984484 /* Supporting Files */,
 			);
@@ -325,6 +330,7 @@
 				4CB37EE716EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld in Sources */,
 				4C21996916EC113900DD990B /* Image.m in Sources */,
 				4C21996A16EC113900DD990B /* Meal.m in Sources */,
+				2C6AA82716ED386B000AA9DD /* MealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

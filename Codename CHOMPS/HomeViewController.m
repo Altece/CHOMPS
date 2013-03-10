@@ -8,8 +8,11 @@
 
 #import "HomeViewController.h"
 #import "CameraViewController.h"
+#import "MealViewController.h"
 
 @interface HomeViewController ()
+
+
 
 @end
 
@@ -31,13 +34,12 @@ NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
     [super viewDidLoad];
     
     pictureDates = [[NSMutableArray alloc] init]; /// Initializing the array
-    
-    NSDate *currentDate = NSDate.date;
      
-    
     [pictureDates addObject:@"March, 8th"];
+    [pictureDates addObject:@"March, 10th"];
+    [pictureDates addObject:@"March, 11th"];
     
-    self.navigationItem.title = @"CHOMPS: Recent Pictures";
+    self.navigationItem.title = @"CHOMPS";
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -78,16 +80,18 @@ NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
     
     // Set up the cell...
     NSString *cellValue = [pictureDates objectAtIndex:indexPath.row];
+    
     cell.text = cellValue;
     
     return cell;
 }
 
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    [self performSegueWithIdentifier:@"mealSegue" sender:nil]; /// Segue to MealViewController
     
 }
 
@@ -97,4 +101,5 @@ NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
 {    
     [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
 }
+
 @end
