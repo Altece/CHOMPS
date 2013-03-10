@@ -12,7 +12,9 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 @property (weak, nonatomic) IBOutlet UILabel *loadingText;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) NSMutableArray *capturedImages;
+
 
 - (IBAction)isDoneTakingPictures:(id)sender;
- 
+- (void)resetWithImages:(NSMutableArray *)images;
 @end

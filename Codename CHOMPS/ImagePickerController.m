@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "Image.h"
 #import "ImagePickerController.h"
+#import "ImagePickerCell.h"
+#import "CameraViewController.h"
 
 @interface ImagePickerController ()
 
@@ -28,8 +30,6 @@
     
     _imageCollectionView.dataSource = self;
     _imageCollectionView.delegate = self;
-    [_imageCollectionView setBackgroundColor:[UIColor whiteColor]];
-    
     
     // Load Images to array
     
@@ -58,10 +58,13 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
+    ImagePickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
     
     // Sets it to the cells background view
-    [cell setBackgroundView:allImages[indexPath.row]];
+    [cell.image setImage:allImages[indexPath.row]];
+    
+    // Set cell date from image
+    [cell setDate:_takenImageObjectID[indexPath.row]];
     
     return cell;
 }
@@ -73,7 +76,13 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
     request.predicate = [NSPredicate predicateWithFormat:@"(timestamp >= %@ && timestamp =< %@)", start, end];
-    NSArray *data = [app.managedObjectContext executeFetchRequest:request error:nil];
+    NSError *error;
+    
+    NSArray *data = [app.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"%@", error);
+    }
     
     NSMutableArray *dataImages = [[NSMutableArray alloc] initWithCapacity:data.count];
 
@@ -85,24 +94,104 @@
         // Creates a UIImage and sets old image to nil, should be creating thumbnail
         UIImage *thumb = [UIImage imageWithData:UIImageJPEGRepresentation(image, .1) scale:.1];
         
-        // Creates the ImageView from Image
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:thumb];
-        
         // Add to array
-        [dataImages addObject:imageView];
+        [dataImages addObject:thumb];
         
     }
     return dataImages;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImagePickerCell *cell = (ImagePickerCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    [cell setSelectedForUse:!cell.selectedForUse];
+    
+    [cell setNeedsDisplay];
+}
+
 #pragma mark - IBActions
 
-- (IBAction)saveSelectedImages:(id)sender {
+- (IBAction)saveSelectedImages:(id)sender
+{
+    // Sort images
+    NSMutableArray *saveImages = [[NSMutableArray alloc] init];
+    NSMutableArray *removeImages = [[NSMutableArray alloc] init];
+    
+    for (int i=0; i < allImages.count; i++) {
+        ImagePickerCell *cell = (ImagePickerCell *)[_imageCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        
+        if (cell.selectedForUse) {
+            // Save to meal
+            [saveImages addObject:cell.date];
+        } else {
+            // Remove from core data
+            [removeImages addObject:cell.date];
+        }
+        
+    }
+    
+    NSOperationQueue *delete = [[NSOperationQueue alloc] init];
+    
+    for (NSDate *timestamp in removeImages) {
+        [delete addOperationWithBlock:^{
+            AppDelegate *app = [UIApplication sharedApplication].delegate;
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            request.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
+            request.predicate = [NSPredicate predicateWithFormat:@"(timestamp == %@)", timestamp];
+            NSError *error;
+            NSArray *data = [app.managedObjectContext executeFetchRequest:request error:&error];
+            if (error) {
+                NSLog(@"%@", error);
+            }
+         
+             for(Image *img in data){
+                 [app.managedObjectContext deleteObject:img];
+             }
+         
+             NSFetchRequest *request2 = [[NSFetchRequest alloc] init];
+             request2.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
+             request2.predicate = [NSPredicate predicateWithFormat:@"(timestamp == %@)", timestamp];
+             NSArray *data2 = [app.managedObjectContext executeFetchRequest:request2 error:nil];
+         
+             for (Image *img in data2){
+                 NSLog(@"%@", img);
+             }
+         
+        }];
+    }
+    
+    
+    
+    
+    
 }
 
 - (IBAction)cancel:(id)sender {
 }
 
-- (IBAction)addMoreImages:(id)sender {
+- (IBAction)addMoreImages:(id)sender
+{
+    [self performSegueWithIdentifier:@"returnToCamera" sender:_takenImageObjectID];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([(NSMutableArray *)sender count] == _takenImageObjectID.count) {
+        
+        NSLog(@"?");
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
 @end

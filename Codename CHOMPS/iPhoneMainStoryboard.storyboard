@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YNP-kX-WwT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YNP-kX-WwT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -118,38 +118,90 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YMW-ff-7Vo">
-                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="211" id="dMQ-uA-Y2S"/>
+                                    <constraint firstAttribute="height" constant="150" id="OzI-et-0T4"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zWq-fU-cZ9">
-                                    <size key="itemSize" width="185" height="185"/>
+                                    <size key="itemSize" width="140" height="131"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="Xoi-lI-zoX">
-                                        <rect key="frame" x="10" y="13" width="185" height="185"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="Xoi-lI-zoX" customClass="ImagePickerCell">
+                                        <rect key="frame" x="10" y="9" width="140" height="131"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="185" height="185"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="131"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWE-ca-Nch"/>
+                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" image="Check.png" translatesAutoresizingMaskIntoConstraints="NO" id="8lN-KX-ZYk">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="31" id="hFk-q4-cNv"/>
+                                                        <constraint firstAttribute="height" constant="31" id="knR-b2-tvk"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="8lN-KX-ZYk" secondAttribute="trailing" constant="5" id="Jkr-am-0s0"/>
+                                            <constraint firstItem="VWE-ca-Nch" firstAttribute="top" secondItem="Xoi-lI-zoX" secondAttribute="top" type="default" id="THT-FK-FUZ"/>
+                                            <constraint firstItem="VWE-ca-Nch" firstAttribute="bottom" secondItem="Xoi-lI-zoX" secondAttribute="bottom" type="default" id="d5S-8a-Wze"/>
+                                            <constraint firstItem="VWE-ca-Nch" firstAttribute="trailing" secondItem="Xoi-lI-zoX" secondAttribute="trailing" type="default" id="mle-8P-LCy"/>
+                                            <constraint firstAttribute="bottom" secondItem="8lN-KX-ZYk" secondAttribute="bottom" constant="5" id="mxv-44-aKi"/>
+                                            <constraint firstItem="VWE-ca-Nch" firstAttribute="leading" secondItem="Xoi-lI-zoX" secondAttribute="leading" type="default" id="psB-b8-qDH"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="checkBox" destination="8lN-KX-ZYk" id="8W2-HO-qjg"/>
+                                            <outlet property="image" destination="VWE-ca-Nch" id="rSj-E1-WoQ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="phG-Ae-gki">
+                                <segments>
+                                    <segment title="Breakfast"/>
+                                    <segment title="Lunch"/>
+                                    <segment title="Dinner"/>
+                                    <segment title="Snack"/>
+                                </segments>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </segmentedControl>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfZ-Ip-xnn">
+                                <items>
+                                    <barButtonItem systemItem="camera" id="p2i-Li-R8j">
+                                        <connections>
+                                            <action selector="addMoreImages:" destination="zOX-TZ-Sit" id="lSP-P9-Xhj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="207" style="plain" systemItem="fixedSpace" id="MU2-RX-ct7"/>
+                                    <barButtonItem systemItem="done" id="xXW-zy-vkG">
+                                        <connections>
+                                            <action selector="saveSelectedImages:" destination="zOX-TZ-Sit" id="AOP-bW-bFa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="phG-Ae-gki" firstAttribute="trailing" secondItem="3Py-5a-ArL" secondAttribute="trailing" type="default" id="5JR-6z-NPq"/>
+                            <constraint firstItem="phG-Ae-gki" firstAttribute="top" secondItem="3Py-5a-ArL" secondAttribute="top" constant="176" id="Dbn-he-6sR"/>
                             <constraint firstItem="YMW-ff-7Vo" firstAttribute="trailing" secondItem="3Py-5a-ArL" secondAttribute="trailing" type="default" id="Hb3-Fv-Te3"/>
                             <constraint firstItem="YMW-ff-7Vo" firstAttribute="leading" secondItem="3Py-5a-ArL" secondAttribute="leading" type="default" id="UuZ-fs-30R"/>
+                            <constraint firstItem="UfZ-Ip-xnn" firstAttribute="bottom" secondItem="3Py-5a-ArL" secondAttribute="bottom" type="default" id="Wrp-8l-ogA"/>
+                            <constraint firstItem="phG-Ae-gki" firstAttribute="leading" secondItem="3Py-5a-ArL" secondAttribute="leading" type="default" id="kuW-8m-h9C"/>
+                            <constraint firstItem="UfZ-Ip-xnn" firstAttribute="leading" secondItem="3Py-5a-ArL" secondAttribute="leading" type="default" id="nJD-DB-UlY"/>
                             <constraint firstItem="YMW-ff-7Vo" firstAttribute="top" secondItem="3Py-5a-ArL" secondAttribute="top" type="default" id="pWg-g8-Hfl"/>
+                            <constraint firstItem="UfZ-Ip-xnn" firstAttribute="trailing" secondItem="3Py-5a-ArL" secondAttribute="trailing" type="default" id="yhR-Tg-cnw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageCollectionView" destination="YMW-ff-7Vo" id="5Qc-xw-FMZ"/>
+                        <segue destination="oCM-Dw-4p0" kind="modal" identifier="returnToCamera" id="txq-3d-CK5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffX-fN-1ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,6 +224,9 @@
             <point key="canvasLocation" x="-445" y="20"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Check.png" width="150" height="150"/>
+    </resources>
     <classes>
         <class className="CameraViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraViewController.h"/>
@@ -186,6 +241,13 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
             <relationships>
                 <relationship kind="action" name="launchCamera:"/>
+            </relationships>
+        </class>
+        <class className="ImagePickerCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkBox" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="ImagePickerController" superclassName="UIViewController">
@@ -221,4 +283,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="txq-3d-CK5"/>
+    </inferredMetricsTieBreakers>
 </document>

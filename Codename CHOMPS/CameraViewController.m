@@ -81,7 +81,6 @@
     [_doneButton setHidden:YES];
 }
 
-
 #pragma mark - Image Proccessing
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

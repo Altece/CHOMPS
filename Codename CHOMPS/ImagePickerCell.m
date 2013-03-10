@@ -8,7 +8,11 @@
 
 #import "ImagePickerCell.h"
 
-@implementation ImagePickerCell
+@implementation ImagePickerCell {
+    
+    UITapGestureRecognizer *tapToSelect;
+    
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -19,13 +23,15 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    
+    if (self.selectedForUse) {
+        [_checkBox setAlpha:1.0];
+    } else {
+        [_checkBox setAlpha:0.2];
+    }
+    
 }
-*/
 
 @end
