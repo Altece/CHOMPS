@@ -73,13 +73,16 @@
     
     Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
     
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [imageStore setImage:info[UIImagePickerControllerOriginalImage]];
     
-    [imageStore setImage:image];
+    NSDate *timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
     
+    [imageStore setTimestamp:timestamp];
+    
+     
     [app.managedObjectContext save:nil];
     
-    [objectIDs addObject:imageStore.objectID];
+    [objectIDs addObject:timestamp];
     
 }
 

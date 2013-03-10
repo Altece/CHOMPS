@@ -51,13 +51,21 @@
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
     
-    NSManagedObjectID *objectID = [_takenImageObjectID objectAtIndex:indexPath.row];
-    
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     
-    Image *imageStore = [app.managedObjectContext objectWithID:objectID];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
-    UIImage *image = imageStore.image;
+    request.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
+    
+    request.predicate = [NSPredicate predicateWithFormat:@"(timestamp == %@)", (NSDate *)[_takenImageObjectID objectAtIndex:indexPath.row]];
+    
+    NSArray *data = [app.managedObjectContext executeFetchRequest:request error:nil];
+    
+    Image *imageStore = [data objectAtIndex:0];
+    
+    NSLog(@"%@", imageStore);
+    
+    UIImage *image = [imageStore image];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     
