@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Codename CHOMPS. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
+#import "AppDelegate.h"
+#import "Image.h"
 #import "ImagePickerController.h"
 
 @interface ImagePickerController ()
@@ -27,7 +30,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,18 +39,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma Mark - datasource/delegate methods
+#pragma mark - datasource/delegate methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [_takenImages count];
+    return [_takenImageObjectID count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
-    UIImage *image = [[_takenImages objectAtIndex:indexPath.row] objectForKey:UIImagePickerControllerOriginalImage];
+    
+    NSManagedObjectID *objectID = [_takenImageObjectID objectAtIndex:indexPath.row];
+    
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    
+    Image *imageStore = [app.managedObjectContext objectWithID:objectID];
+    
+    UIImage *image = imageStore.image;
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     
@@ -57,7 +67,7 @@
 }
 
 
-#pragma Mark - IBActions
+#pragma mark - IBActions
 
 - (IBAction)saveSelectedImages:(id)sender {
 }

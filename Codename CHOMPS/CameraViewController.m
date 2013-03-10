@@ -7,6 +7,7 @@
 //
 
 #import <CoreData/CoreData.h>
+#import "Image.h"
 #import "AppDelegate.h"
 #import "CameraViewController.h"
 #import "ImagePickerController.h"
@@ -18,6 +19,7 @@
 @implementation CameraViewController {
     UIImagePickerController *camera;
     UITapGestureRecognizer *takePicture;
+    NSMutableArray *objectIDs;
     BOOL doneTakingImages;
 }
 
@@ -26,6 +28,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    objectIDs = [[NSMutableArray alloc] init];
     takePicture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(takePicture:)];
     [self.view addGestureRecognizer:takePicture];
     doneTakingImages = NO;
@@ -55,7 +58,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-//    ImagePickerController *imagePicker = segue.destinationViewController;
+    ImagePickerController *imagePicker = segue.destinationViewController;
+    
+    [imagePicker setTakenImageObjectID:objectIDs];
     
 }
 
@@ -66,10 +71,15 @@
     
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     
-    NSEntityDescription *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
+    Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
     
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
     
+    [imageStore setImage:image];
     
+    [app.managedObjectContext save:nil];
+    
+    [objectIDs addObject:imageStore.objectID];
     
 }
 
