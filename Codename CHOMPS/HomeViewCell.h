@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView2;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView3;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView4;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @property (strong, nonatomic) Meal *meal;
 

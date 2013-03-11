@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UITableViewController
+@interface HomeViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 - (IBAction)launchCamera:(id)sender;
 

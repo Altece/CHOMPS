@@ -8,6 +8,7 @@
 
 #import "HomeViewCell.h"
 #import "UIImage+ColorImage.h"
+#import "Image.h"
 
 @implementation HomeViewCell {
     __strong UIImage *clearImage;
@@ -39,6 +40,35 @@
 - (void)dealloc
 {
     clearImage = nil;
+}
+
+- (void)setMeal:(Meal *)meal
+{
+    _meal = meal;
+    self.timeLabel.text = [NSString stringWithFormat:@" %@", meal.timestamp];
+    
+    int count = meal.images.count;
+    if (count > 4) count = 4;
+    
+    NSEnumerator *imgs = [meal.images objectEnumerator];
+    
+    switch (count) {
+        case 0:
+            return;
+            
+        case 4:
+            self.imageView4.image = [(Image *)[imgs nextObject] image];
+        case 3:
+            self.imageView3.image = [(Image *)[imgs nextObject] image];
+        case 2:
+            self.imageView2.image = [(Image *)[imgs nextObject] image];
+        case 1:
+            self.imageView1.image = [(Image *)[imgs nextObject] image];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
