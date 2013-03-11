@@ -15,7 +15,11 @@
 
 @end
 
-@implementation ImagePickerController
+@implementation ImagePickerController {
+    
+    NSMutableArray *allImages;
+    
+}
 
 - (void)viewDidLoad
 {
@@ -25,6 +29,11 @@
     _imageCollectionView.dataSource = self;
     _imageCollectionView.delegate = self;
     [_imageCollectionView setBackgroundColor:[UIColor whiteColor]];
+    
+    
+    // Load Images to array
+    
+    allImages = [self loadImageViewWithTimestampAfter:_takenImageObjectID[0] andBefore:[_takenImageObjectID lastObject]];
     
 }
 
@@ -43,7 +52,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [_takenImageObjectID count];
+    return [allImages count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -51,29 +60,40 @@
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
     
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    request.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
-    
-    request.predicate = [NSPredicate predicateWithFormat:@"(timestamp == %@)", (NSDate *)[_takenImageObjectID objectAtIndex:indexPath.row]];
-    
-    NSArray *data = [app.managedObjectContext executeFetchRequest:request error:nil];
-    
-    Image *imageStore = [data objectAtIndex:0];
-    
-    NSLog(@"%@", imageStore);
-    
-    UIImage *image = [imageStore image];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    
-    [cell setBackgroundView:imageView];
+    // Sets it to the cells background view
+    [cell setBackgroundView:allImages[indexPath.row]];
     
     return cell;
 }
 
+- (NSMutableArray *)loadImageViewWithTimestampAfter:(NSDate *)start andBefore:(NSDate *)end
+{
+    // Core Data Fetch
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
+    request.predicate = [NSPredicate predicateWithFormat:@"(timestamp >= %@ && timestamp =< %@)", start, end];
+    NSArray *data = [app.managedObjectContext executeFetchRequest:request error:nil];
+    
+    NSMutableArray *dataImages = [[NSMutableArray alloc] initWithCapacity:data.count];
+
+    for (Image *imageStore in data) {
+        
+        // Gets UIImage from imageStore and sets imageStore to nil
+        UIImage *image = [imageStore image];
+        
+        // Creates a UIImage and sets old image to nil, should be creating thumbnail
+        UIImage *thumb = [UIImage imageWithData:UIImageJPEGRepresentation(image, .1) scale:.1];
+        
+        // Creates the ImageView from Image
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:thumb];
+        
+        // Add to array
+        [dataImages addObject:imageView];
+        
+    }
+    return dataImages;
+}
 
 #pragma mark - IBActions
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImagePickerController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ImagePickerController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
 @property (weak, nonatomic) NSMutableArray *takenImageObjectID;

@@ -22,6 +22,8 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
+
+
 @end
 
 @implementation HomeViewController
@@ -39,7 +41,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"My Meals";
+    self.navigationItem.title = @"Codename CHOMPS";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     /// CoreData stuff
@@ -60,6 +62,13 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     // table resue registration
     [self.tableView registerNib:[UINib nibWithNibName:@"HomeViewCell" bundle:nil] forCellReuseIdentifier:HOME_CELL];
     [self.tableView registerNib:[UINib nibWithNibName:@"HomeViewHeader" bundle:nil] forHeaderFooterViewReuseIdentifier:HOME_HEADER];
+    
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
@@ -116,7 +125,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     NSString *title = nil;
     switch (section) {
         case 0:
-            title = @"Category";//[[NSDate date] description];
+            title = @"My Meals";//[[NSDate date] description];
             break;
             
         default:
@@ -138,7 +147,6 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
 
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    
     UITableView *tableView = self.tableView;
     
     switch(type) {
@@ -185,11 +193,12 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     [self.tableView endUpdates];
 }
 
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    [self performSegueWithIdentifier:@"mealSegue" sender:nil]; /// Segue to MealViewController
     
 }
 
@@ -204,4 +213,5 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
 {    
     [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
 }
+
 @end

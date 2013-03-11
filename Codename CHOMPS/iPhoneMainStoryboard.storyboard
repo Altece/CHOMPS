@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YNP-kX-WwT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YNP-kX-WwT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -33,17 +33,17 @@
                     </navigationItem>
                     <connections>
                         <segue destination="oCM-Dw-4p0" kind="modal" identifier="cameraSegue" modalTransitionStyle="coverVertical" animates="NO" id="8a4-xv-MjK"/>
-                        <segue destination="Ijt-kR-EQj" kind="push" id="tMZ-Ax-oON"/>
+                        <segue destination="Ijt-kR-EQj" kind="push" identifier="mealSegue" id="tMZ-Ax-oON"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQ4-eH-skw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="56" y="20"/>
         </scene>
-        <!--View Controller - Meal Viewer-->
+        <!--Meal View Controller - Meal Viewer-->
         <scene sceneID="dnE-H3-rk3">
             <objects>
-                <viewController storyboardIdentifier="Meal" title="Meal Viewer" id="Ijt-kR-EQj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Meal" title="Meal Viewer" id="Ijt-kR-EQj" customClass="MealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lp7-HI-zld">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -63,13 +63,14 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdx-hh-aub">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdx-hh-aub">
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="YkS-et-2Lu"/>
+                                    <constraint firstAttribute="height" constant="97" id="rTP-su-7aT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Done">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -79,16 +80,29 @@
                                     <action selector="isDoneTakingPictures:" destination="oCM-Dw-4p0" eventType="touchUpInside" id="XG3-dJ-MN5"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WCM-dh-a3f"/>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3X-NL-bCD">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="h3X-NL-bCD" firstAttribute="centerX" secondItem="WCM-dh-a3f" secondAttribute="centerX" type="default" id="6Qc-vp-zkb"/>
                             <constraint firstItem="cdx-hh-aub" firstAttribute="bottom" secondItem="FHx-3o-f5p" secondAttribute="bottom" type="default" id="7bX-6d-S9w"/>
+                            <constraint firstItem="h3X-NL-bCD" firstAttribute="centerX" secondItem="cdx-hh-aub" secondAttribute="centerX" type="default" id="Bh4-z7-9aN"/>
+                            <constraint firstItem="WCM-dh-a3f" firstAttribute="top" secondItem="FHx-3o-f5p" secondAttribute="top" constant="125" id="I8e-t7-Dgm"/>
                             <constraint firstItem="cdx-hh-aub" firstAttribute="leading" secondItem="FHx-3o-f5p" secondAttribute="leading" type="default" id="S5F-IW-DqB"/>
+                            <constraint firstItem="h3X-NL-bCD" firstAttribute="top" secondItem="WCM-dh-a3f" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sBt-jX-e5f"/>
                             <constraint firstItem="cdx-hh-aub" firstAttribute="trailing" secondItem="FHx-3o-f5p" secondAttribute="trailing" type="default" id="seH-EZ-VOO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TaL-V2-Axf"/>
                     <connections>
-                        <segue destination="7vR-K8-0ug" kind="modal" identifier="toImagePicker" id="H6r-FD-OTH"/>
+                        <outlet property="doneButton" destination="cdx-hh-aub" id="U38-Pp-DfN"/>
+                        <outlet property="loadingActivity" destination="WCM-dh-a3f" id="Q5O-x8-oHp"/>
+                        <outlet property="loadingText" destination="h3X-NL-bCD" id="eAa-Fj-OXS"/>
+                        <segue destination="zOX-TZ-Sit" kind="modal" identifier="toImagePicker" id="BWp-ue-pro"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grm-DM-4pA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -96,41 +110,51 @@
             <point key="canvasLocation" x="593" y="-644"/>
         </scene>
         <!--Image Picker Controller-->
-        <scene sceneID="exB-xR-sav">
+        <scene sceneID="99Q-Pb-F1C">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="7vR-K8-0ug" customClass="ImagePickerController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="xMz-eh-Bon">
+                <viewController id="zOX-TZ-Sit" customClass="ImagePickerController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Py-5a-ArL">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cXC-CK-4pS">
-                            <size key="itemSize" width="90" height="90"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="image" id="ams-OZ-ixu">
-                                <rect key="frame" x="10" y="10" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="7vR-K8-0ug" id="l07-pD-e0o"/>
-                            <outlet property="delegate" destination="7vR-K8-0ug" id="IUj-qn-DTG"/>
-                        </connections>
-                    </collectionView>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YMW-ff-7Vo">
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="211" id="dMQ-uA-Y2S"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zWq-fU-cZ9">
+                                    <size key="itemSize" width="185" height="185"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="Xoi-lI-zoX">
+                                        <rect key="frame" x="10" y="13" width="185" height="185"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="185" height="185"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YMW-ff-7Vo" firstAttribute="trailing" secondItem="3Py-5a-ArL" secondAttribute="trailing" type="default" id="Hb3-Fv-Te3"/>
+                            <constraint firstItem="YMW-ff-7Vo" firstAttribute="leading" secondItem="3Py-5a-ArL" secondAttribute="leading" type="default" id="UuZ-fs-30R"/>
+                            <constraint firstItem="YMW-ff-7Vo" firstAttribute="top" secondItem="3Py-5a-ArL" secondAttribute="top" type="default" id="pWg-g8-Hfl"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="imageCollectionView" destination="xMz-eh-Bon" id="Ljc-3a-jBw"/>
+                        <outlet property="imageCollectionView" destination="YMW-ff-7Vo" id="5Qc-xw-FMZ"/>
                     </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p7V-vc-cxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffX-fN-1ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="-644"/>
+            <point key="canvasLocation" x="1058" y="-644"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hDV-eY-dT6">
@@ -153,6 +177,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraViewController.h"/>
             <relationships>
                 <relationship kind="action" name="isDoneTakingPictures:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loadingActivity" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="loadingText" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="HomeViewController" superclassName="UITableViewController">
@@ -161,7 +188,7 @@
                 <relationship kind="action" name="launchCamera:"/>
             </relationships>
         </class>
-        <class className="ImagePickerController" superclassName="UICollectionViewController">
+        <class className="ImagePickerController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerController.h"/>
             <relationships>
                 <relationship kind="action" name="addMoreImages:"/>
@@ -169,6 +196,9 @@
                 <relationship kind="action" name="saveSelectedImages:"/>
                 <relationship kind="outlet" name="imageCollectionView" candidateClass="UICollectionView"/>
             </relationships>
+        </class>
+        <class className="MealViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MealViewController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -178,9 +208,6 @@
         </class>
         <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>

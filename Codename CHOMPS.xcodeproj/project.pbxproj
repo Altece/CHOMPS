@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C6AA82916ED4C0C000AA9DD /* pizza.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AA82816ED4C0C000AA9DD /* pizza.jpg */; };
 		4C21996916EC113900DD990B /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996616EC113900DD990B /* Image.m */; };
 		4C21996A16EC113900DD990B /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996816EC113900DD990B /* Meal.m */; };
 		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
 		4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EDD16EBD80B005436D0 /* HomeViewController.m */; };
 		4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE016EBE86E005436D0 /* ImagePickerController.m */; };
 		4CB37EE716EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE516EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld */; };
+		4CEFD38116ED417A00961754 /* ImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38016ED417A00961754 /* ImagePickerCell.m */; };
+		4CEFD38416ED42D000961754 /* MealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38316ED42D000961754 /* MealViewController.m */; };
 		B05088A216EB8D9800984484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A116EB8D9800984484 /* UIKit.framework */; };
 		B05088A416EB8D9800984484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A316EB8D9800984484 /* Foundation.framework */; };
 		B05088A616EB8D9800984484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A516EB8D9800984484 /* CoreGraphics.framework */; };
@@ -50,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C6AA82816ED4C0C000AA9DD /* pizza.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pizza.jpg; path = "Codename CHOMPS/pizza.jpg"; sourceTree = "<group>"; };
 		4C21996516EC113900DD990B /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		4C21996616EC113900DD990B /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		4C21996716EC113900DD990B /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
@@ -61,6 +65,10 @@
 		4CB37EDF16EBE86E005436D0 /* ImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerController.h; sourceTree = "<group>"; };
 		4CB37EE016EBE86E005436D0 /* ImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerController.m; sourceTree = "<group>"; };
 		4CB37EE616EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Codename_CHOMPS.xcdatamodel; sourceTree = "<group>"; };
+		4CEFD37F16ED417A00961754 /* ImagePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerCell.h; sourceTree = "<group>"; };
+		4CEFD38016ED417A00961754 /* ImagePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerCell.m; sourceTree = "<group>"; };
+		4CEFD38216ED42D000961754 /* MealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealViewController.h; sourceTree = "<group>"; };
+		4CEFD38316ED42D000961754 /* MealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealViewController.m; sourceTree = "<group>"; };
 		B050889E16EB8D9800984484 /* Codename CHOMPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codename CHOMPS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05088A116EB8D9800984484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B05088A316EB8D9800984484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -125,6 +133,7 @@
 		B050889516EB8D9800984484 = {
 			isa = PBXGroup;
 			children = (
+				2C6AA82816ED4C0C000AA9DD /* pizza.jpg */,
 				B05088A916EB8D9800984484 /* Codename CHOMPS */,
 				B05088CB16EB8D9800984484 /* Codename CHOMPSTests */,
 				B05088A016EB8D9800984484 /* Frameworks */,
@@ -169,6 +178,10 @@
 				B0EBA23916ED268500BD2354 /* UIImage+ColorImage.m */,
 				4CB37EDF16EBE86E005436D0 /* ImagePickerController.h */,
 				4CB37EE016EBE86E005436D0 /* ImagePickerController.m */,
+				4CEFD37F16ED417A00961754 /* ImagePickerCell.h */,
+				4CEFD38016ED417A00961754 /* ImagePickerCell.m */,
+				4CEFD38216ED42D000961754 /* MealViewController.h */,
+				4CEFD38316ED42D000961754 /* MealViewController.m */,
 				B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */,
 				B05088AA16EB8D9800984484 /* Supporting Files */,
 			);
@@ -313,6 +326,7 @@
 				B05088DF16EBC82200984484 /* iPhoneMainStoryboard.storyboard in Resources */,
 				B0EBA23716ED18C700BD2354 /* HomeViewCell.xib in Resources */,
 				B0EBA23D16ED3C3600BD2354 /* HomeViewHeader.xib in Resources */,
+				2C6AA82916ED4C0C000AA9DD /* pizza.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +373,8 @@
 				B0EBA23516ED137100BD2354 /* HomeViewCell.m in Sources */,
 				B0EBA23A16ED268500BD2354 /* UIImage+ColorImage.m in Sources */,
 				B0EBA24016ED3CDE00BD2354 /* HomeViewHeader.m in Sources */,
+				4CEFD38116ED417A00961754 /* ImagePickerCell.m in Sources */,
+				4CEFD38416ED42D000961754 /* MealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
