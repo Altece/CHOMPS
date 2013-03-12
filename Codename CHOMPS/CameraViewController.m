@@ -36,7 +36,6 @@
     doneTakingImages = NO;
     
     cameraSave = [[NSOperationQueue alloc] init];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -73,7 +72,7 @@
     ImagePickerController *imagePicker = segue.destinationViewController;
     
     [imagePicker setTakenImageObjectID:objectIDs];
-    
+
     NSLog(@"%d operations left", cameraSave.operationCount);
     [cameraSave waitUntilAllOperationsAreFinished]; // Blocking
 }
@@ -84,6 +83,11 @@
     [_loadingActivity setHidden:NO];
     [_loadingText setHidden:NO];
     [_doneButton setHidden:YES];
+}
+
+- (void)resetWithImages:(NSMutableArray *)images
+{
+    
 }
 
 #pragma mark - Image Proccessing
