@@ -8,17 +8,25 @@
 
 #import "HomeViewController.h"
 #import "CameraViewController.h"
-#import "MealViewController.h"
+#import "HomeViewHeader.h"
+#import "HomeViewCell.h"
+#import "AppDelegate.h"
 
-@interface HomeViewController ()
+static NSString *HOME_CELL = @"HomeViewCell";
+static NSString *HOME_HEADER = @"HomeViewHeader";
+
+@interface HomeViewController () {
+    /// A controller to manage CoreData info on a table view.
+    __strong NSFetchedResultsController *frc;
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 
 
 @end
 
 @implementation HomeViewController
-
-NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,13 +41,28 @@ NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
 {
     [super viewDidLoad];
     
-    pictureDates = [[NSMutableArray alloc] init]; /// Initializing the array
-     
-    [pictureDates addObject:@"March, 8th"];
-    [pictureDates addObject:@"March, 10th"];
-    [pictureDates addObject:@"March, 11th"];
+    self.navigationItem.title = @"Codename CHOMPS";
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
-    self.navigationItem.title = @"CHOMPS";
+    /// CoreData stuff
+    NSManagedObjectContext *moc = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Meal"];
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO]];
+    frc = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:moc sectionNameKeyPath:nil cacheName:@"Root"];
+    frc.delegate = self;
+    
+    // table view setup
+    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.separatorColor = [UIColor blackColor];
+    
+    // table delegate setup
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    // table resue registration
+    [self.tableView registerNib:[UINib nibWithNibName:@"HomeViewCell" bundle:nil] forCellReuseIdentifier:HOME_CELL];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HomeViewHeader" bundle:nil] forHeaderFooterViewReuseIdentifier:HOME_HEADER];
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -57,33 +80,117 @@ NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
 
 #pragma mark - Table view data source
 
+/// Number of Sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
+/// Number of Rows
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return pictureDates.count;
+    id sectionInfo = [[frc sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell isKindOfClass:[HomeViewCell class]]) {
+        HomeViewCell *c = (HomeViewCell *)cell;
+        Meal *meal = [frc objectAtIndexPath:indexPath];
+        c.meal = meal;
+    }
+}
+
+/// Get Cell for a given NSIndexPath
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
-    static NSString *CellIdentifier = @"Cell";    
+    HomeViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HOME_CELL];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
-    }
-    
-    // Set up the cell...
-    NSString *cellValue = [pictureDates objectAtIndex:indexPath.row];
-    
-    cell.text = cellValue;
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
+}
+
+/// Get the height of the Headers
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return [HomeViewHeader height];
+}
+
+/// Get the header view
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSString *title = nil;
+    switch (section) {
+        case 0:
+            title = @"My Meals";//[[NSDate date] description];
+            break;
+            
+        default:
+            title = @"PIZZA! :D";
+            break;
+    }
+    HomeViewHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HOME_HEADER];
+    header.title.text = title;
+    
+    return header;
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    // The fetch controller is about to start sending change notifications, so prepare the table view for updates.
+    [self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray
+                                               arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray
+                                               arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
+    [self.tableView endUpdates];
 }
 
 #pragma mark - Table view delegate
@@ -93,6 +200,11 @@ NSMutableArray *pictureDates; /// Contains the timestamps of all pictures
     
     [self performSegueWithIdentifier:@"mealSegue" sender:nil]; /// Segue to MealViewController
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [HomeViewCell height];
 }
 
 #pragma mark - Outlets

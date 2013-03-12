@@ -22,6 +22,7 @@
     NSMutableArray *objectIDs;
     BOOL doneTakingImages;
     UIView *shutter;
+    NSOperationQueue *cameraSave;
 }
 
 - (void)viewDidLoad
@@ -33,6 +34,8 @@
     takePicture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(takePicture:)];
     [self.view addGestureRecognizer:takePicture];
     doneTakingImages = NO;
+    
+    cameraSave = [[NSOperationQueue alloc] init];
     
 }
 
@@ -71,6 +74,7 @@
     
     [imagePicker setTakenImageObjectID:objectIDs];
     
+    [cameraSave waitUntilAllOperationsAreFinished]; // Blocking
 }
 
 - (void)doneWithCamera
@@ -86,14 +90,20 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
-    [imageStore setImage:info[UIImagePickerControllerOriginalImage]];
-    NSDate *timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
-    [imageStore setTimestamp:timestamp];
-    [app.managedObjectContext save:nil];
-    [objectIDs addObject:timestamp];
+    [cameraSave addOperationWithBlock:^{
     
+        // Camera save IO
+        AppDelegate *app = [UIApplication sharedApplication].delegate;
+        Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
+        [imageStore setImage:info[UIImagePickerControllerOriginalImage]];
+        NSDate *timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
+        [imageStore setTimestamp:timestamp];
+        [app.managedObjectContext save:nil];
+        [objectIDs addObject:timestamp];
+        NSLog(@"Saved");
+        
+     }];
+        
     if ([objectIDs count] >= 10) {
         [self doneWithCamera];
     }
