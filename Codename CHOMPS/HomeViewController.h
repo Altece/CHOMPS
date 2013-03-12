@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UITableViewController
+@interface HomeViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 @property (nonatomic, retain) NSIndexPath* checkedIndexPath;
 
 - (IBAction)launchCamera:(id)sender;

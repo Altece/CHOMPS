@@ -22,6 +22,7 @@
     NSMutableArray *objectIDs;
     BOOL doneTakingImages;
     UIView *shutter;
+    NSOperationQueue *cameraSave;
 }
 
 - (void)viewDidLoad
@@ -34,6 +35,8 @@
     [self.view addGestureRecognizer:takePicture];
     doneTakingImages = NO;
     
+    cameraSave = [[NSOperationQueue alloc] init];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -71,6 +74,8 @@
     
     [imagePicker setTakenImageObjectID:objectIDs];
     
+    NSLog(@"%d operations left", cameraSave.operationCount);
+    [cameraSave waitUntilAllOperationsAreFinished]; // Blocking
 }
 
 - (void)doneWithCamera
@@ -85,18 +90,24 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
-    [imageStore setImage:info[UIImagePickerControllerOriginalImage]];
-    NSDate *timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
-    [imageStore setTimestamp:timestamp];
-    [app.managedObjectContext save:nil];
-    [objectIDs addObject:timestamp];
-    
+    [cameraSave waitUntilAllOperationsAreFinished];
     if ([objectIDs count] >= 10) {
         [self doneWithCamera];
     }
+    [cameraSave addOperationWithBlock:^{
+    
+        // Camera save IO
+        NSLog(@"Saving");
+        NSManagedObjectContext *MAP = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+        Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:MAP];
+        [imageStore setImage:info[UIImagePickerControllerOriginalImage]];
+        NSDate *timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
+        [imageStore setTimestamp:timestamp];
+        [MAP save:nil];
+        [objectIDs addObject:timestamp];
+        NSLog(@"Saved");
+        
+     }];
     
     [UIView animateWithDuration:.1 animations:^{
         [shutter setFrame:CGRectMake(0, -self.view.frame.size.height - 22, self.view.frame.size.width, self.view.frame.size.height)];

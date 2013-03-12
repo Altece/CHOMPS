@@ -9,6 +9,7 @@
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 #import "Image.h"
+#import "Meal.h"
 #import "ImagePickerController.h"
 #import "ImagePickerCell.h"
 #import "CameraViewController.h"
@@ -114,6 +115,9 @@
 
 - (IBAction)saveSelectedImages:(id)sender
 {
+    
+    NSLog(@"Done Called");
+    
     // Sort images
     NSMutableArray *saveImages = [[NSMutableArray alloc] init];
     NSMutableArray *removeImages = [[NSMutableArray alloc] init];
@@ -131,40 +135,19 @@
         
     }
     
-    NSOperationQueue *delete = [[NSOperationQueue alloc] init];
-    
-    for (NSDate *timestamp in removeImages) {
-        [delete addOperationWithBlock:^{
-            AppDelegate *app = [UIApplication sharedApplication].delegate;
-            NSFetchRequest *request = [[NSFetchRequest alloc] init];
-            request.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
-            request.predicate = [NSPredicate predicateWithFormat:@"(timestamp == %@)", timestamp];
-            NSError *error;
-            NSArray *data = [app.managedObjectContext executeFetchRequest:request error:&error];
-            if (error) {
-                NSLog(@"%@", error);
-            }
-         
-             for(Image *img in data){
-                 [app.managedObjectContext deleteObject:img];
-             }
-         
-             NSFetchRequest *request2 = [[NSFetchRequest alloc] init];
-             request2.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
-             request2.predicate = [NSPredicate predicateWithFormat:@"(timestamp == %@)", timestamp];
-             NSArray *data2 = [app.managedObjectContext executeFetchRequest:request2 error:nil];
-         
-             for (Image *img in data2){
-                 NSLog(@"%@", img);
-             }
-         
-        }];
-    }
-    
-    
-    
-    
-    
+    NSLog(@"Keep and add to meal\n%@", saveImages);
+    NSLog(@"Remove\n%@", removeImages);
+
+    // Create Meal
+
+    NSManagedObjectContext *mop = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    Meal *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:mop];
+
+    [imageStore setImages:[NSSet setWithArray:saveImages]];
+
+    NSLog(@"%@", imageStore.images);
+
+
 }
 
 - (IBAction)cancel:(id)sender {
