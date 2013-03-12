@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C21996916EC113900DD990B /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996616EC113900DD990B /* Image.m */; };
-		4C21996A16EC113900DD990B /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996816EC113900DD990B /* Meal.m */; };
 		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
 		4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EDD16EBD80B005436D0 /* HomeViewController.m */; };
 		4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE016EBE86E005436D0 /* ImagePickerController.m */; };
@@ -23,6 +22,8 @@
 		4CEFD3C516EEACC800961754 /* pizza.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD3BB16EEACC800961754 /* pizza.jpg */; };
 		4CEFD3C616EEACC800961754 /* UIImage+ColorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD3BD16EEACC800961754 /* UIImage+ColorImage.m */; };
 		4CEFD3C716EEACC800961754 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD3BF16EEACC800961754 /* InfoPlist.strings */; };
+		4CEFD3D916EEBC6600961754 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD3D516EEBC6600961754 /* Meal.m */; };
+		4CEFD3DA16EEBC6600961754 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD3D716EEBC6600961754 /* InfoPlist.strings */; };
 		B05088A216EB8D9800984484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A116EB8D9800984484 /* UIKit.framework */; };
 		B05088A416EB8D9800984484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A316EB8D9800984484 /* Foundation.framework */; };
 		B05088A616EB8D9800984484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A516EB8D9800984484 /* CoreGraphics.framework */; };
@@ -57,8 +58,6 @@
 /* Begin PBXFileReference section */
 		4C21996516EC113900DD990B /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		4C21996616EC113900DD990B /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
-		4C21996716EC113900DD990B /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
-		4C21996816EC113900DD990B /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
 		4CB37ED316EBD666005436D0 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		4CB37ED416EBD666005436D0 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		4CB37EDC16EBD80B005436D0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -81,6 +80,9 @@
 		4CEFD3BC16EEACC800961754 /* UIImage+ColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorImage.h"; sourceTree = "<group>"; };
 		4CEFD3BD16EEACC800961754 /* UIImage+ColorImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorImage.m"; sourceTree = "<group>"; };
 		4CEFD3C016EEACC800961754 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		4CEFD3D416EEBC6600961754 /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
+		4CEFD3D516EEBC6600961754 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
+		4CEFD3D816EEBC6600961754 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		B050889E16EB8D9800984484 /* Codename CHOMPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codename CHOMPS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05088A116EB8D9800984484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B05088A316EB8D9800984484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -153,9 +155,19 @@
 			path = "Codename CHOMPS/en.lproj";
 			sourceTree = "<group>";
 		};
+		4CEFD3D616EEBC6600961754 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				4CEFD3D716EEBC6600961754 /* InfoPlist.strings */,
+			);
+			name = en.lproj;
+			path = "Codename CHOMPS/en.lproj";
+			sourceTree = "<group>";
+		};
 		B050889516EB8D9800984484 = {
 			isa = PBXGroup;
 			children = (
+				4CEFD3D616EEBC6600961754 /* en.lproj */,
 				4CEFD3BE16EEACC800961754 /* en.lproj */,
 				B05088A916EB8D9800984484 /* Codename CHOMPS */,
 				B05088CB16EB8D9800984484 /* Codename CHOMPSTests */,
@@ -255,10 +267,10 @@
 				4CB37EE516EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld */,
 				4C21996516EC113900DD990B /* Image.h */,
 				4C21996616EC113900DD990B /* Image.m */,
-				4C21996716EC113900DD990B /* Meal.h */,
-				4C21996816EC113900DD990B /* Meal.m */,
 				B05088E316EBD2CE00984484 /* UIImageValueTransformer.h */,
 				B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */,
+				4CEFD3D416EEBC6600961754 /* Meal.h */,
+				4CEFD3D516EEBC6600961754 /* Meal.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -344,6 +356,7 @@
 				4CEFD3C416EEACC800961754 /* HomeViewHeader.xib in Resources */,
 				4CEFD3C516EEACC800961754 /* pizza.jpg in Resources */,
 				4CEFD3C716EEACC800961754 /* InfoPlist.strings in Resources */,
+				4CEFD3DA16EEBC6600961754 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,12 +399,12 @@
 				4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */,
 				4CB37EE716EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld in Sources */,
 				4C21996916EC113900DD990B /* Image.m in Sources */,
-				4C21996A16EC113900DD990B /* Meal.m in Sources */,
 				4CEFD38116ED417A00961754 /* ImagePickerCell.m in Sources */,
 				4CEFD38416ED42D000961754 /* MealViewController.m in Sources */,
 				4CEFD3C116EEACC800961754 /* HomeViewCell.m in Sources */,
 				4CEFD3C316EEACC800961754 /* HomeViewHeader.m in Sources */,
 				4CEFD3C616EEACC800961754 /* UIImage+ColorImage.m in Sources */,
+				4CEFD3D916EEBC6600961754 /* Meal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +431,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				4CEFD3C016EEACC800961754 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4CEFD3D716EEBC6600961754 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CEFD3D816EEBC6600961754 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
