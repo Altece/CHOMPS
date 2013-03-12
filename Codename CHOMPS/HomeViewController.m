@@ -100,6 +100,10 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
         HomeViewCell *c = (HomeViewCell *)cell;
         Meal *meal = [frc objectAtIndexPath:indexPath];
         c.meal = meal;
+        
+
+        
+        
     }
 }
 

@@ -2,30 +2,18 @@
 //  Meal.m
 //  Codename CHOMPS
 //
-//  Created by Steven Brunwasser on 3/9/13.
+//  Created by Michael Timbrook on 3/11/13.
 //  Copyright (c) 2013 Codename CHOMPS. All rights reserved.
 //
 
 #import "Meal.h"
+#import "Image.h"
 
 
 @implementation Meal
 
 @dynamic timestamp;
+@dynamic mealType;
 @dynamic images;
-
-
-- (void)addImagesObject:(NSManagedObject *)value{
-    
-}
-- (void)removeImagesObject:(NSManagedObject *)value{
-    
-}
-- (void)addImages:(NSSet *)values{
-    
-}
-- (void)removeImages:(NSSet *)values{
-    
-}
 
 @end

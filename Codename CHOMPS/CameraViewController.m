@@ -36,7 +36,6 @@
     doneTakingImages = NO;
     
     cameraSave = [[NSOperationQueue alloc] init];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -73,7 +72,8 @@
     ImagePickerController *imagePicker = segue.destinationViewController;
     
     [imagePicker setTakenImageObjectID:objectIDs];
-    
+
+    NSLog(@"%d operations left", cameraSave.operationCount);
     [cameraSave waitUntilAllOperationsAreFinished]; // Blocking
 }
 
@@ -85,28 +85,33 @@
     [_doneButton setHidden:YES];
 }
 
+- (void)resetWithImages:(NSMutableArray *)images
+{
+    
+}
+
 #pragma mark - Image Proccessing
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    
+    [cameraSave waitUntilAllOperationsAreFinished];
+    if ([objectIDs count] >= 10) {
+        [self doneWithCamera];
+    }
     [cameraSave addOperationWithBlock:^{
     
         // Camera save IO
-        AppDelegate *app = [UIApplication sharedApplication].delegate;
-        Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
+        NSLog(@"Saving");
+        NSManagedObjectContext *MAP = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+        Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:MAP];
         [imageStore setImage:info[UIImagePickerControllerOriginalImage]];
         NSDate *timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
         [imageStore setTimestamp:timestamp];
-        [app.managedObjectContext save:nil];
+        [MAP save:nil];
         [objectIDs addObject:timestamp];
         NSLog(@"Saved");
         
      }];
-        
-    if ([objectIDs count] >= 10) {
-        [self doneWithCamera];
-    }
     
     [UIView animateWithDuration:.1 animations:^{
         [shutter setFrame:CGRectMake(0, -self.view.frame.size.height - 22, self.view.frame.size.width, self.view.frame.size.height)];
