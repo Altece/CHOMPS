@@ -10,6 +10,15 @@
 
 static UIImageValueTransformerQuiality imageQuality = UIImageValueTransformerQuialityHigh;
 
+static NSString *IMAGES_FOLDER = @"MealImages";
+
+static NSUInteger fileNumber = 0;
+
+static NSString *GrabImagesFolder()
+{
+    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:IMAGES_FOLDER];
+}
+
 /// A function to get the compression value for an
 /// ImageTransformerQuality value
 /// @param quality  The quality value.
@@ -63,11 +72,14 @@ static CGFloat compressionForImageQuality(UIImageValueTransformerQuiality qualit
 - (id)transformedValue:(id)value
 {
     if (value) {
-        if ([value isKindOfClass:[NSData class]]) {
-            return value;
-        }
+        NSString *filename = [[@"Image " stringByAppendingFormat:@"%@ %d", [[NSDate date] description], fileNumber++] stringByAppendingPathExtension:@".jpg"];
+        NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
         
-        return UIImageJPEGRepresentation((UIImage *)value, compressionForImageQuality(imageQuality));
+        NSData *data = UIImageJPEGRepresentation((UIImage *)value, compressionForImageQuality(imageQuality));
+        
+        [data writeToFile:filePath atomically:YES];
+        
+        return filename;
     }
     
     return nil;
@@ -75,8 +87,14 @@ static CGFloat compressionForImageQuality(UIImageValueTransformerQuiality qualit
 
 - (id)reverseTransformedValue:(id)value
 {
-    if (value)
-        return [UIImage imageWithData:(NSData *)value];
+    if (value) {
+        NSString *filename = value;
+        NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
+        
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        
+        return [UIImage imageWithData:data];
+    }
     
     return nil;
 }
