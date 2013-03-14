@@ -143,10 +143,33 @@
     NSManagedObjectContext *mop = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     Meal *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:mop];
 
-    [imageStore setImages:[NSSet setWithArray:saveImages]];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:mop];
+//    request.predicate = [NSPredicate predicateWithFormat:predStr];
+    NSError *error;
+    
+    NSArray *data = [mop executeFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"%@", error);
+    }
 
-    NSLog(@"%@", imageStore.images);
+    NSSet *allImages = [NSSet setWithArray:data];
+    NSMutableArray *deleteImages = [[NSMutableArray alloc] init];
 
+    NSSet *keepImages = [allImages objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+        Image *img = obj;
+        for (NSDate *date in saveImages){
+            if ([date isEqualToDate:[img timestamp]]) {
+                return true;
+            }
+        }
+        [deleteImages addObject:img];
+        return false;
+    }];
+
+    NSLog(@"%@", keepImages);
+    NSLog(@"%@", deleteImages);
 
 }
 

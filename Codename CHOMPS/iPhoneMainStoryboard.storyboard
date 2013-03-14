@@ -45,7 +45,7 @@
             <objects>
                 <viewController storyboardIdentifier="Meal" title="Meal Viewer" id="Ijt-kR-EQj" customClass="MealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lp7-HI-zld">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -103,6 +103,7 @@
                         <outlet property="loadingActivity" destination="WCM-dh-a3f" id="Q5O-x8-oHp"/>
                         <outlet property="loadingText" destination="h3X-NL-bCD" id="eAa-Fj-OXS"/>
                         <segue destination="zOX-TZ-Sit" kind="modal" identifier="toImagePicker" id="BWp-ue-pro"/>
+                        <segue destination="Y7c-ts-Kf9" kind="modal" identifier="returnSegue" modalTransitionStyle="crossDissolve" id="J3L-fg-zqu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grm-DM-4pA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -284,6 +285,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="txq-3d-CK5"/>
+        <segue reference="J3L-fg-zqu"/>
+        <segue reference="8a4-xv-MjK"/>
     </inferredMetricsTieBreakers>
 </document>

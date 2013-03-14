@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4C21996916EC113900DD990B /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996616EC113900DD990B /* Image.m */; };
+		4C46285516EEC84300317108 /* chompsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C46285416EEC84300317108 /* chompsIcon.png */; };
+		4C46285816EEC90F00317108 /* 57_chompsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C46285616EEC90F00317108 /* 57_chompsIcon.png */; };
+		4C46285916EEC90F00317108 /* 114_chompsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C46285716EEC90F00317108 /* 114_chompsIcon.png */; };
+		4C46285B16EEC91700317108 /* 114_chompsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C46285A16EEC91700317108 /* 114_chompsIcon.png */; };
+		4C46285D16EEC91D00317108 /* 57_chompsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C46285C16EEC91D00317108 /* 57_chompsIcon.png */; };
 		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
 		4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EDD16EBD80B005436D0 /* HomeViewController.m */; };
 		4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE016EBE86E005436D0 /* ImagePickerController.m */; };
@@ -21,14 +26,13 @@
 		4CEFD3C416EEACC800961754 /* HomeViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD3BA16EEACC800961754 /* HomeViewHeader.xib */; };
 		4CEFD3C516EEACC800961754 /* pizza.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD3BB16EEACC800961754 /* pizza.jpg */; };
 		4CEFD3C616EEACC800961754 /* UIImage+ColorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD3BD16EEACC800961754 /* UIImage+ColorImage.m */; };
-		4CEFD3C716EEACC800961754 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD3BF16EEACC800961754 /* InfoPlist.strings */; };
 		4CEFD3D916EEBC6600961754 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD3D516EEBC6600961754 /* Meal.m */; };
-		4CEFD3DA16EEBC6600961754 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD3D716EEBC6600961754 /* InfoPlist.strings */; };
+		4CEFD41E16EEC3AF00961754 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05088CE16EB8D9800984484 /* InfoPlist.strings */; };
+		4CEFD42116EEC3BB00961754 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD41F16EEC3BB00961754 /* InfoPlist.strings */; };
 		B05088A216EB8D9800984484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A116EB8D9800984484 /* UIKit.framework */; };
 		B05088A416EB8D9800984484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A316EB8D9800984484 /* Foundation.framework */; };
 		B05088A616EB8D9800984484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A516EB8D9800984484 /* CoreGraphics.framework */; };
 		B05088A816EB8D9800984484 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088A716EB8D9800984484 /* CoreData.framework */; };
-		B05088AE16EB8D9800984484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05088AC16EB8D9800984484 /* InfoPlist.strings */; };
 		B05088B016EB8D9800984484 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B05088AF16EB8D9800984484 /* main.m */; };
 		B05088B416EB8D9800984484 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B05088B316EB8D9800984484 /* AppDelegate.m */; };
 		B05088B616EB8D9800984484 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B05088B516EB8D9800984484 /* Default.png */; };
@@ -58,6 +62,11 @@
 /* Begin PBXFileReference section */
 		4C21996516EC113900DD990B /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		4C21996616EC113900DD990B /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		4C46285416EEC84300317108 /* chompsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chompsIcon.png; sourceTree = "<group>"; };
+		4C46285616EEC90F00317108 /* 57_chompsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57_chompsIcon.png; sourceTree = "<group>"; };
+		4C46285716EEC90F00317108 /* 114_chompsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114_chompsIcon.png; sourceTree = "<group>"; };
+		4C46285A16EEC91700317108 /* 114_chompsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114_chompsIcon.png; sourceTree = "<group>"; };
+		4C46285C16EEC91D00317108 /* 57_chompsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57_chompsIcon.png; sourceTree = "<group>"; };
 		4CB37ED316EBD666005436D0 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		4CB37ED416EBD666005436D0 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		4CB37EDC16EBD80B005436D0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -79,17 +88,15 @@
 		4CEFD3BB16EEACC800961754 /* pizza.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pizza.jpg; sourceTree = "<group>"; };
 		4CEFD3BC16EEACC800961754 /* UIImage+ColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorImage.h"; sourceTree = "<group>"; };
 		4CEFD3BD16EEACC800961754 /* UIImage+ColorImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorImage.m"; sourceTree = "<group>"; };
-		4CEFD3C016EEACC800961754 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		4CEFD3D416EEBC6600961754 /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
 		4CEFD3D516EEBC6600961754 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
-		4CEFD3D816EEBC6600961754 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		4CEFD42016EEC3BB00961754 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Codename CHOMPSTests/en.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
 		B050889E16EB8D9800984484 /* Codename CHOMPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codename CHOMPS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05088A116EB8D9800984484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B05088A316EB8D9800984484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B05088A516EB8D9800984484 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B05088A716EB8D9800984484 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B05088AB16EB8D9800984484 /* Codename CHOMPS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Codename CHOMPS-Info.plist"; sourceTree = "<group>"; };
-		B05088AD16EB8D9800984484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B05088AF16EB8D9800984484 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B05088B116EB8D9800984484 /* Codename CHOMPS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Codename CHOMPS-Prefix.pch"; sourceTree = "<group>"; };
 		B05088B216EB8D9800984484 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -139,36 +146,21 @@
 		4CEFD38516ED491200961754 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C46285616EEC90F00317108 /* 57_chompsIcon.png */,
+				4C46285716EEC90F00317108 /* 114_chompsIcon.png */,
 				4CEFD3BA16EEACC800961754 /* HomeViewHeader.xib */,
+				4C46285416EEC84300317108 /* chompsIcon.png */,
 				4CEFD38616ED4B8300961754 /* Check.png */,
 				4CEFD3BB16EEACC800961754 /* pizza.jpg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		4CEFD3BE16EEACC800961754 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				4CEFD3BF16EEACC800961754 /* InfoPlist.strings */,
-			);
-			name = en.lproj;
-			path = "Codename CHOMPS/en.lproj";
-			sourceTree = "<group>";
-		};
-		4CEFD3D616EEBC6600961754 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				4CEFD3D716EEBC6600961754 /* InfoPlist.strings */,
-			);
-			name = en.lproj;
-			path = "Codename CHOMPS/en.lproj";
-			sourceTree = "<group>";
-		};
 		B050889516EB8D9800984484 = {
 			isa = PBXGroup;
 			children = (
-				4CEFD3D616EEBC6600961754 /* en.lproj */,
-				4CEFD3BE16EEACC800961754 /* en.lproj */,
+				4C46285C16EEC91D00317108 /* 57_chompsIcon.png */,
+				4C46285A16EEC91700317108 /* 114_chompsIcon.png */,
 				B05088A916EB8D9800984484 /* Codename CHOMPS */,
 				B05088CB16EB8D9800984484 /* Codename CHOMPSTests */,
 				B05088A016EB8D9800984484 /* Frameworks */,
@@ -231,8 +223,8 @@
 		B05088AA16EB8D9800984484 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4CEFD41F16EEC3BB00961754 /* InfoPlist.strings */,
 				B05088AB16EB8D9800984484 /* Codename CHOMPS-Info.plist */,
-				B05088AC16EB8D9800984484 /* InfoPlist.strings */,
 				B05088AF16EB8D9800984484 /* main.m */,
 				B05088B116EB8D9800984484 /* Codename CHOMPS-Prefix.pch */,
 				B05088B516EB8D9800984484 /* Default.png */,
@@ -346,7 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B05088AE16EB8D9800984484 /* InfoPlist.strings in Resources */,
+				4CEFD41E16EEC3AF00961754 /* InfoPlist.strings in Resources */,
 				B05088B616EB8D9800984484 /* Default.png in Resources */,
 				B05088B816EB8D9800984484 /* Default@2x.png in Resources */,
 				B05088BA16EB8D9800984484 /* Default-568h@2x.png in Resources */,
@@ -355,8 +347,12 @@
 				4CEFD3C216EEACC800961754 /* HomeViewCell.xib in Resources */,
 				4CEFD3C416EEACC800961754 /* HomeViewHeader.xib in Resources */,
 				4CEFD3C516EEACC800961754 /* pizza.jpg in Resources */,
-				4CEFD3C716EEACC800961754 /* InfoPlist.strings in Resources */,
-				4CEFD3DA16EEBC6600961754 /* InfoPlist.strings in Resources */,
+				4CEFD42116EEC3BB00961754 /* InfoPlist.strings in Resources */,
+				4C46285516EEC84300317108 /* chompsIcon.png in Resources */,
+				4C46285816EEC90F00317108 /* 57_chompsIcon.png in Resources */,
+				4C46285916EEC90F00317108 /* 114_chompsIcon.png in Resources */,
+				4C46285B16EEC91700317108 /* 114_chompsIcon.png in Resources */,
+				4C46285D16EEC91D00317108 /* 57_chompsIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,26 +423,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4CEFD3BF16EEACC800961754 /* InfoPlist.strings */ = {
+		4CEFD41F16EEC3BB00961754 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4CEFD3C016EEACC800961754 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		4CEFD3D716EEBC6600961754 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4CEFD3D816EEBC6600961754 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B05088AC16EB8D9800984484 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B05088AD16EB8D9800984484 /* en */,
+				4CEFD42016EEC3BB00961754 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
