@@ -108,11 +108,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     if ([cell isKindOfClass:[HomeViewCell class]]) {
         HomeViewCell *c = (HomeViewCell *)cell;
         Meal *meal = [frc objectAtIndexPath:indexPath];
-        c.meal = meal;
-        
-
-        
-        
+        c.meal = meal;        
     }
 }
 
@@ -225,6 +221,21 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
 - (IBAction)launchCamera:(id)sender
 {    
     [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
+}
+
+#pragma mark - CoreMotion 
+
+- (void)update:(NSInteger)delta{
+    // Get Motion Update
+    
+    CMDeviceMotion *currentDeviceMotion = motionManager.deviceMotion;
+    CMAttitude *currentAttitude = currentDeviceMotion.attitude;
+    
+    float roll = currentAttitude.roll;
+    float pitch = currentAttitude.pitch;
+    float yaw = currentAttitude.yaw;
+    
+    NSLog(@"Roll:%.2f Pitch:%.2f Yaw:%.2f", roll, pitch, yaw);
 }
 
 @end
