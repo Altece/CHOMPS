@@ -34,6 +34,15 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     if (self) {
         
     }
+    
+    // Core Motion Initialization
+    self.motionManager = [[CMMotionManager alloc] init];
+    motionManager.deviceMotionUpdateInterval = 1.0/60.0;
+    if (motionManager.isDeviceMotionAvailable){
+        [motionManager startDeviceMotionUpdates];
+        
+//        [self scheduleUpdate];
+    }
     return self;
 }
 
@@ -78,7 +87,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table View Data Source
 
 /// Number of Sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

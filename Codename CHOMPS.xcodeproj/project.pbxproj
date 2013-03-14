@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C811D4416F2323100E4A2E4 /* 57_chompsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C811D4316F2323100E4A2E4 /* 57_chompsIcon.png */; };
+		2C811D4616F2323700E4A2E4 /* 114_chompsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C811D4516F2323700E4A2E4 /* 114_chompsIcon.png */; };
 		4C21996916EC113900DD990B /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996616EC113900DD990B /* Image.m */; };
 		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
 		4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EDD16EBD80B005436D0 /* HomeViewController.m */; };
@@ -56,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C811D4316F2323100E4A2E4 /* 57_chompsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57_chompsIcon.png; sourceTree = "<group>"; };
+		2C811D4516F2323700E4A2E4 /* 114_chompsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114_chompsIcon.png; sourceTree = "<group>"; };
 		4C21996516EC113900DD990B /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		4C21996616EC113900DD990B /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		4CB37ED316EBD666005436D0 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 		B050889516EB8D9800984484 = {
 			isa = PBXGroup;
 			children = (
+				2C811D4516F2323700E4A2E4 /* 114_chompsIcon.png */,
+				2C811D4316F2323100E4A2E4 /* 57_chompsIcon.png */,
 				4CEFD3D616EEBC6600961754 /* en.lproj */,
 				4CEFD3BE16EEACC800961754 /* en.lproj */,
 				B05088A916EB8D9800984484 /* Codename CHOMPS */,
@@ -357,6 +363,8 @@
 				4CEFD3C516EEACC800961754 /* pizza.jpg in Resources */,
 				4CEFD3C716EEACC800961754 /* InfoPlist.strings in Resources */,
 				4CEFD3DA16EEBC6600961754 /* InfoPlist.strings in Resources */,
+				2C811D4416F2323100E4A2E4 /* 57_chompsIcon.png in Resources */,
+				2C811D4616F2323700E4A2E4 /* 114_chompsIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
