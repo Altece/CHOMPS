@@ -28,6 +28,8 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
 
 @implementation HomeViewController
 
+@synthesize motionManager = motionManager;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -41,7 +43,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     if (motionManager.isDeviceMotionAvailable){
         [motionManager startDeviceMotionUpdates];
         
-//        [self scheduleUpdate];
+        
     }
     return self;
 }
