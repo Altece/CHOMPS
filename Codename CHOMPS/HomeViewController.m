@@ -34,6 +34,15 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     if (self) {
         
     }
+    
+    // Core Motion Initialization
+    self.motionManager = [[CMMotionManager alloc] init];
+    motionManager.deviceMotionUpdateInterval = 1.0/60.0;
+    if (motionManager.isDeviceMotionAvailable){
+        [motionManager startDeviceMotionUpdates];
+        
+//        [self scheduleUpdate];
+    }
     return self;
 }
 
@@ -78,7 +87,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table View Data Source
 
 /// Number of Sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -99,11 +108,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     if ([cell isKindOfClass:[HomeViewCell class]]) {
         HomeViewCell *c = (HomeViewCell *)cell;
         Meal *meal = [frc objectAtIndexPath:indexPath];
-        c.meal = meal;
-        
-
-        
-        
+        c.meal = meal;        
     }
 }
 
@@ -216,6 +221,21 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
 - (IBAction)launchCamera:(id)sender
 {    
     [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
+}
+
+#pragma mark - CoreMotion 
+
+- (void)update:(NSInteger)delta{
+    // Get Motion Update
+    
+    CMDeviceMotion *currentDeviceMotion = motionManager.deviceMotion;
+    CMAttitude *currentAttitude = currentDeviceMotion.attitude;
+    
+    float roll = currentAttitude.roll;
+    float pitch = currentAttitude.pitch;
+    float yaw = currentAttitude.yaw;
+    
+    NSLog(@"Roll:%.2f Pitch:%.2f Yaw:%.2f", roll, pitch, yaw);
 }
 
 @end
