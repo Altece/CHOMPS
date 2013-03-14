@@ -40,11 +40,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     if (doneTakingImages) {
-        if (objectIDs.count > 0) {
-            [self performSegueWithIdentifier:@"toImagePicker" sender:@"toImagePicker"];
-        } else {
-            [self performSegueWithIdentifier:@"returnSegue" sender:@"returnToMainView"];
-        }
+        [self performSegueWithIdentifier:@"toImagePicker" sender:nil];
     } else {
         camera = [[UIImagePickerController alloc] init];
         [camera setSourceType:UIImagePickerControllerSourceTypeCamera];
@@ -73,14 +69,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([sender isEqualToString:@"toImagePicker"]) {
-        ImagePickerController *imagePicker = segue.destinationViewController;
-        [imagePicker setTakenImageObjectID:objectIDs];
-        NSLog(@"%d operations left", cameraSave.operationCount);
-        [cameraSave waitUntilAllOperationsAreFinished]; // Blocking
-    } else if ([sender isEqualToString:@"returnToMainView"]){
-        
-    }
+    ImagePickerController *imagePicker = segue.destinationViewController;
+    
+    [imagePicker setTakenImageObjectID:objectIDs];
+
+    NSLog(@"%d operations left", cameraSave.operationCount);
+    [cameraSave waitUntilAllOperationsAreFinished]; // Blocking
 }
 
 - (void)doneWithCamera
