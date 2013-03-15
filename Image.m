@@ -12,6 +12,8 @@ static SavedImageQuiality imageQuality = SavedImageQuialityHigh;
 
 static NSString *IMAGES_FOLDER = @"Images";
 
+static NSString *DEFAULT_STRING = @"nil";
+
 static NSUInteger fileNumber = 0;
 
 static NSString *GrabImagesFolder()
@@ -70,7 +72,7 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 - (UIImage *)image
 {
     NSString *filename = [self imagePath];
-    if ([filename isEqualToString:@""]) {
+    if ([filename isEqualToString:DEFAULT_STRING]) {
         NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
         
         NSData *data = [NSData dataWithContentsOfFile:filePath];
@@ -91,11 +93,12 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
         
         NSData *data = UIImageJPEGRepresentation(image, compressionForImageQuality(imageQuality));
         
-        [data writeToFile:filePath atomically:YES];
+        [[NSFileManager defaultManager] createFileAtPath:filePath contents:data attributes:nil];
+//        [data writeToFile:filePath atomically:YES];
         
         [self setImagePath:filename];
     } else {
-        [self setImagePath:@""];
+        [self setImagePath:DEFAULT_STRING];
     }
 }
 
@@ -104,7 +107,7 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 - (void)deleteImage
 {
     NSString *filename = [self imagePath];
-    if (![filename isEqualToString:@""]) {
+    if (![filename isEqualToString:DEFAULT_STRING]) {
         NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
         [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
     }
@@ -113,7 +116,7 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 - (void)prepareForDeletion
 {
     [self deleteImage];
-    [self setImagePath:@""];
+    [self setImagePath:DEFAULT_STRING];
     [super prepareForDeletion];
 }
 
