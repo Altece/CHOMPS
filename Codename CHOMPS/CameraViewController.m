@@ -100,16 +100,18 @@
     }
     [cameraSave addOperationWithBlock:^{
     
-        // Camera save IO
-        NSLog(@"Saving");
-        NSManagedObjectContext *MAP = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-        Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:MAP];
-        [imageStore setImage:info[UIImagePickerControllerOriginalImage]];
-        NSDate *timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
-        [imageStore setTimestamp:timestamp];
-        [MAP save:nil];
-        [objectIDs addObject:timestamp];
-        NSLog(@"Saved");
+        @autoreleasepool {
+            // Camera save IO
+            NSLog(@"Saving");
+            NSManagedObjectContext *MAP = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+            Image *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:MAP];
+            [imageStore setImage:info[UIImagePickerControllerOriginalImage]];
+            NSDate *timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
+            [imageStore setTimestamp:timestamp];
+            [MAP save:nil];
+            [objectIDs addObject:imageStore];
+            NSLog(@"Saved");
+        }
         
      }];
     

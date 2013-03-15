@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
 
-@interface HomeViewController : UITableViewController <NSFetchedResultsControllerDelegate>
-@property (nonatomic, retain) NSIndexPath* checkedIndexPath;
+@interface HomeViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+    CMMotionManager *motionManager;
+}
+
+@property (nonatomic, retain) NSIndexPath *checkedIndexPath;
+@property (nonatomic, retain) CMMotionManager *motionManager;
 
 - (IBAction)launchCamera:(id)sender;
 
