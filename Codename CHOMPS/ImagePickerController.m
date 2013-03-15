@@ -20,7 +20,6 @@
 
 @implementation ImagePickerController {
     
-    NSMutableArray *allImages;
     
 }
 
@@ -84,6 +83,7 @@
 
 - (IBAction)saveSelectedImages:(id)sender
 {
+    NSMutableSet *setOfImages;
     
     NSLog(@"Done Called");
     
@@ -91,21 +91,21 @@
     NSMutableArray *saveImages = [[NSMutableArray alloc] init]; // Array of timestamps
     NSMutableArray *removeImages = [[NSMutableArray alloc] init];
     
-    for (int i=0; i < allImages.count; i++) {
+    // Going through all images and adding the objects at idices
+    for (int i=0; i< _takenImageObjectID.count; i++) {
         ImagePickerCell *cell = (ImagePickerCell *)[_imageCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         
         if (cell.selectedForUse) {
             // Save to meal
-            [saveImages addObject:cell.date];
+            [setOfImages addObject:_takenImageObjectID[i]];
+            
         } else {
             // Remove from core data
-            [removeImages addObject:cell.date];
+//            [removeImages addObject:cell.date];
         }
         
     }
-    
-    NSLog(@"Keep and add to meal\n%@", saveImages);
-    NSLog(@"Remove\n%@", removeImages);
+
 
     // Create Meal
     NSManagedObjectContext *moc = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
@@ -113,7 +113,10 @@
 
     [meal addImages:[NSSet setWithArray:saveImages]];
 
+    
     NSLog(@"%@", meal.images);
+    
+    [moc save:nil];
 }
 
 - (IBAction)cancel:(id)sender {
