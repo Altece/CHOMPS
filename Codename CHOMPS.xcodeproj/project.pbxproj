@@ -261,9 +261,9 @@
 		B05088E216EBD18A00984484 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				4CB37EE516EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld */,
 				B0EBA27316F2CF7A00BD2354 /* Image.h */,
 				B0EBA27416F2CF7A00BD2354 /* Image.m */,
-				4CB37EE516EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld */,
 				4CEFD3D416EEBC6600961754 /* Meal.h */,
 				4CEFD3D516EEBC6600961754 /* Meal.m */,
 			);

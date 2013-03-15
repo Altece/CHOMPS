@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Image" representedClassName="Image" syncable="YES">
-        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePath" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" attributeType="Date" indexed="YES" syncable="YES"/>
     </entity>
     <entity name="Meal" representedClassName="Meal" syncable="YES">
