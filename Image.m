@@ -103,6 +103,7 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 
 - (void)deleteImage
 {
+    if (![self respondsToSelector:@selector(imagePath)]) return;
     NSString *filename = self.imagePath;
     if (![filename isEqualToString:@""]) {
         NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];

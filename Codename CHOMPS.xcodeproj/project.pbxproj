@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C21996916EC113900DD990B /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C21996616EC113900DD990B /* Image.m */; };
 		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
 		4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EDD16EBD80B005436D0 /* HomeViewController.m */; };
 		4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE016EBE86E005436D0 /* ImagePickerController.m */; };
@@ -42,6 +41,7 @@
 		B05088D316EB8D9800984484 /* Codename_CHOMPSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B05088D216EB8D9800984484 /* Codename_CHOMPSTests.m */; };
 		B05088DD16EB922B00984484 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088DC16EB922B00984484 /* CoreMotion.framework */; };
 		B05088DF16EBC82200984484 /* iPhoneMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */; };
+		B0EBA27516F2CF7A00BD2354 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EBA27416F2CF7A00BD2354 /* Image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +55,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4C21996516EC113900DD990B /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
-		4C21996616EC113900DD990B /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		4CB37ED316EBD666005436D0 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		4CB37ED416EBD666005436D0 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		4CB37EDC16EBD80B005436D0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -104,6 +102,8 @@
 		B05088D216EB8D9800984484 /* Codename_CHOMPSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Codename_CHOMPSTests.m; sourceTree = "<group>"; };
 		B05088DC16EB922B00984484 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneMainStoryboard.storyboard; sourceTree = "<group>"; };
+		B0EBA27316F2CF7A00BD2354 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = ../Image.h; sourceTree = "<group>"; };
+		B0EBA27416F2CF7A00BD2354 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image.m; path = ../Image.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,9 +261,9 @@
 		B05088E216EBD18A00984484 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B0EBA27316F2CF7A00BD2354 /* Image.h */,
+				B0EBA27416F2CF7A00BD2354 /* Image.m */,
 				4CB37EE516EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld */,
-				4C21996516EC113900DD990B /* Image.h */,
-				4C21996616EC113900DD990B /* Image.m */,
 				4CEFD3D416EEBC6600961754 /* Meal.h */,
 				4CEFD3D516EEBC6600961754 /* Meal.m */,
 			);
@@ -392,13 +392,13 @@
 				4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */,
 				4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */,
 				4CB37EE716EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld in Sources */,
-				4C21996916EC113900DD990B /* Image.m in Sources */,
 				4CEFD38116ED417A00961754 /* ImagePickerCell.m in Sources */,
 				4CEFD38416ED42D000961754 /* MealViewController.m in Sources */,
 				4CEFD3C116EEACC800961754 /* HomeViewCell.m in Sources */,
 				4CEFD3C316EEACC800961754 /* HomeViewHeader.m in Sources */,
 				4CEFD3C616EEACC800961754 /* UIImage+ColorImage.m in Sources */,
 				4CEFD3D916EEBC6600961754 /* Meal.m in Sources */,
+				B0EBA27516F2CF7A00BD2354 /* Image.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
