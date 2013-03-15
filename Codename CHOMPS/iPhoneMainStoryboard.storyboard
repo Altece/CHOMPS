@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YNP-kX-WwT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YNP-kX-WwT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -156,7 +156,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="checkBox" destination="8lN-KX-ZYk" id="8W2-HO-qjg"/>
-                                            <outlet property="image" destination="VWE-ca-Nch" id="rSj-E1-WoQ"/>
+                                            <outlet property="imageView" destination="VWE-ca-Nch" id="LhB-zZ-FdL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -247,7 +247,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="checkBox" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="ImagePickerController" superclassName="UIViewController">

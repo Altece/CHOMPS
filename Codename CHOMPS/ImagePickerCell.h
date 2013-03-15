@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ImagePickerCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (strong, nonatomic) UIImage *image;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *checkBox;
 @property (weak, nonatomic) NSDate *date;
 

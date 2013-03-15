@@ -61,7 +61,7 @@
     Image *img = _takenImageObjectID[indexPath.row];
     
     // Sets it to the cells background view
-    [cell.image setImage:img.image];
+    cell.image = img.image;
     
     // Set cell date from image
     [cell setDate:img.timestamp];

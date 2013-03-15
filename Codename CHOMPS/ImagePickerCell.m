@@ -14,6 +14,8 @@
     
 }
 
+@synthesize image = _image;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -21,6 +23,17 @@
         // Initialization code
     }
     return self;
+}
+
+- (void)setImage:(UIImage *)image
+{
+    _image = image;
+    _imageView.image = _image;
+}
+
+- (UIImage *)image
+{
+    return _image;
 }
 
 - (void)drawRect:(CGRect)rect
