@@ -119,7 +119,7 @@
     NSLog(@"Done Called");
     
     // Sort images
-    NSMutableArray *saveImages = [[NSMutableArray alloc] init];
+    NSMutableArray *saveImages = [[NSMutableArray alloc] init]; // Array of timestamps
     NSMutableArray *removeImages = [[NSMutableArray alloc] init];
     
     for (int i=0; i < allImages.count; i++) {
@@ -139,15 +139,12 @@
     NSLog(@"Remove\n%@", removeImages);
 
     // Create Meal
+    NSManagedObjectContext *moc = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    Meal *meal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:moc];
 
-    NSManagedObjectContext *mop = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    Meal *imageStore = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:mop];
+    [meal addImages:[NSSet setWithArray:saveImages]];
 
-    [imageStore setImages:[NSSet setWithArray:saveImages]];
-
-    NSLog(@"%@", imageStore.images);
-
-
+    NSLog(@"%@", meal.images);
 }
 
 - (IBAction)cancel:(id)sender {
