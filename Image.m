@@ -69,8 +69,8 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 
 - (UIImage *)image
 {
-    if ([self.imagePath isEqualToString:@""]) {
-        NSString *filename = self.imagePath;
+    NSString *filename = [self imagePath];
+    if ([filename isEqualToString:@""]) {
         NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
         
         NSData *data = [NSData dataWithContentsOfFile:filePath];
@@ -93,9 +93,9 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
         
         [data writeToFile:filePath atomically:YES];
         
-        self.imagePath = filename;
+        [self setImagePath:filename];
     } else {
-        self.imagePath = @"";
+        [self setImagePath:@""];
     }
 }
 
@@ -103,8 +103,7 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 
 - (void)deleteImage
 {
-    if (![self respondsToSelector:@selector(imagePath)]) return;
-    NSString *filename = self.imagePath;
+    NSString *filename = [self imagePath];
     if (![filename isEqualToString:@""]) {
         NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
         [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
@@ -114,7 +113,7 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 - (void)prepareForDeletion
 {
     [self deleteImage];
-    self.imagePath = @"";
+    [self setImagePath:@""];
     [super prepareForDeletion];
 }
 
