@@ -20,7 +20,6 @@
 
 @implementation ImagePickerController {
     
-    NSMutableArray *allImages;
     
 }
 
@@ -33,8 +32,6 @@
     _imageCollectionView.delegate = self;
     
     // Load Images to array
-    
-    allImages = [self loadImageViewWithTimestampAfter:_takenImageObjectID[0] andBefore:[_takenImageObjectID lastObject]];
     
 }
 
@@ -53,7 +50,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [allImages count];
+    return _takenImageObjectID.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -61,46 +58,17 @@
     
     ImagePickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
     
+    Image *img = _takenImageObjectID[indexPath.row];
+    
     // Sets it to the cells background view
-    [cell.image setImage:allImages[indexPath.row]];
+    [cell.image setImage:img.image];
     
     // Set cell date from image
-    [cell setDate:_takenImageObjectID[indexPath.row]];
+    [cell setDate:img.timestamp];
     
     return cell;
 }
 
-- (NSMutableArray *)loadImageViewWithTimestampAfter:(NSDate *)start andBefore:(NSDate *)end
-{
-    // Core Data Fetch
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    request.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
-    request.predicate = [NSPredicate predicateWithFormat:@"(timestamp >= %@ && timestamp =< %@)", start, end];
-    NSError *error;
-    
-    NSArray *data = [app.managedObjectContext executeFetchRequest:request error:&error];
-    
-    if (error) {
-        NSLog(@"%@", error);
-    }
-    
-    NSMutableArray *dataImages = [[NSMutableArray alloc] initWithCapacity:data.count];
-
-    for (Image *imageStore in data) {
-        
-        // Gets UIImage from imageStore and sets imageStore to nil
-        UIImage *image = [imageStore image];
-        
-        // Creates a UIImage and sets old image to nil, should be creating thumbnail
-        UIImage *thumb = [UIImage imageWithData:UIImageJPEGRepresentation(image, .1) scale:.1];
-        
-        // Add to array
-        [dataImages addObject:thumb];
-        
-    }
-    return dataImages;
-}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -115,6 +83,7 @@
 
 - (IBAction)saveSelectedImages:(id)sender
 {
+    NSMutableSet *setOfImages;
     
     NSLog(@"Done Called");
     
@@ -122,21 +91,21 @@
     NSMutableArray *saveImages = [[NSMutableArray alloc] init]; // Array of timestamps
     NSMutableArray *removeImages = [[NSMutableArray alloc] init];
     
-    for (int i=0; i < allImages.count; i++) {
+    // Going through all images and adding the objects at idices
+    for (int i=0; i< _takenImageObjectID.count; i++) {
         ImagePickerCell *cell = (ImagePickerCell *)[_imageCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         
         if (cell.selectedForUse) {
             // Save to meal
-            [saveImages addObject:cell.date];
+            [setOfImages addObject:_takenImageObjectID[i]];
+            
         } else {
             // Remove from core data
-            [removeImages addObject:cell.date];
+//            [removeImages addObject:cell.date];
         }
         
     }
-    
-    NSLog(@"Keep and add to meal\n%@", saveImages);
-    NSLog(@"Remove\n%@", removeImages);
+
 
     // Create Meal
     NSManagedObjectContext *moc = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
@@ -144,7 +113,10 @@
 
     [meal addImages:[NSSet setWithArray:saveImages]];
 
+    
     NSLog(@"%@", meal.images);
+    
+    [moc save:nil];
 }
 
 - (IBAction)cancel:(id)sender {
