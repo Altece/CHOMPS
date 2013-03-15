@@ -18,12 +18,11 @@ static NSUInteger fileNumber = 0;
 
 static NSString *GrabImagesFolder()
 {
-    NSString *images = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:IMAGES_FOLDER];
+    NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *images = documents; //[documents stringByAppendingPathComponent:IMAGES_FOLDER];
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+//    if (! [[NSFileManager defaultManager] fileExistsAtPath:images isDirectory:nil])
         [[NSFileManager defaultManager] createDirectoryAtPath:images withIntermediateDirectories:YES attributes:nil error:nil];
-    });
     
     return images;
 }
@@ -92,20 +91,13 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 
 - (void)setImage:(UIImage *)image
 {
-    [self deleteImage];
-    
-    if (image) {
-        NSString *filename = [[@"Image " stringByAppendingFormat:@"%@ %d", [[NSDate date] description], fileNumber++] stringByAppendingPathExtension:@"jpg"];
-        NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
-        
-        NSData *data = UIImageJPEGRepresentation(image, compressionForImageQuality(imageQuality));
-        
-        [[NSFileManager defaultManager] createFileAtPath:filePath contents:data attributes:nil];
-        
-        [self setImagePath:filename];
-    } else {
-        [self setImagePath:DEFAULT_STRING];
-    }
+    NSString *timestamp = [[NSDate date] description];
+    NSString *filename = [NSString stringWithFormat:@"%@.jpg", timestamp];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:filename];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [imageData writeToFile:savedImagePath atomically:NO];
 }
 
 #pragma mark - Deleting Things
