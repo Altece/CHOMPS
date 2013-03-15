@@ -34,8 +34,6 @@
     
     // Load Images to array
     
-    allImages = [self loadImageViewWithTimestampAfter:_takenImageObjectID[0] andBefore:[_takenImageObjectID lastObject]];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -53,7 +51,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [allImages count];
+    return _takenImageObjectID.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -61,46 +59,17 @@
     
     ImagePickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"image" forIndexPath:indexPath];
     
+    Image *img = _takenImageObjectID[indexPath.row];
+    
     // Sets it to the cells background view
-    [cell.image setImage:allImages[indexPath.row]];
+    [cell.image setImage:img.image];
     
     // Set cell date from image
-    [cell setDate:_takenImageObjectID[indexPath.row]];
+    [cell setDate:img.timestamp];
     
     return cell;
 }
 
-- (NSMutableArray *)loadImageViewWithTimestampAfter:(NSDate *)start andBefore:(NSDate *)end
-{
-    // Core Data Fetch
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    request.entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:app.managedObjectContext];
-    request.predicate = [NSPredicate predicateWithFormat:@"(timestamp >= %@ && timestamp =< %@)", start, end];
-    NSError *error;
-    
-    NSArray *data = [app.managedObjectContext executeFetchRequest:request error:&error];
-    
-    if (error) {
-        NSLog(@"%@", error);
-    }
-    
-    NSMutableArray *dataImages = [[NSMutableArray alloc] initWithCapacity:data.count];
-
-    for (Image *imageStore in data) {
-        
-        // Gets UIImage from imageStore and sets imageStore to nil
-        UIImage *image = [imageStore image];
-        
-        // Creates a UIImage and sets old image to nil, should be creating thumbnail
-        UIImage *thumb = [UIImage imageWithData:UIImageJPEGRepresentation(image, .1) scale:.1];
-        
-        // Add to array
-        [dataImages addObject:thumb];
-        
-    }
-    return dataImages;
-}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
