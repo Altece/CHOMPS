@@ -42,7 +42,6 @@
 		B05088D316EB8D9800984484 /* Codename_CHOMPSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B05088D216EB8D9800984484 /* Codename_CHOMPSTests.m */; };
 		B05088DD16EB922B00984484 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05088DC16EB922B00984484 /* CoreMotion.framework */; };
 		B05088DF16EBC82200984484 /* iPhoneMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */; };
-		B05088E516EBD2CE00984484 /* UIImageValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +104,6 @@
 		B05088D216EB8D9800984484 /* Codename_CHOMPSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Codename_CHOMPSTests.m; sourceTree = "<group>"; };
 		B05088DC16EB922B00984484 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneMainStoryboard.storyboard; sourceTree = "<group>"; };
-		B05088E316EBD2CE00984484 /* UIImageValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageValueTransformer.h; sourceTree = "<group>"; };
-		B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageValueTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,8 +264,6 @@
 				4CB37EE516EC0B4D005436D0 /* Codename_CHOMPS.xcdatamodeld */,
 				4C21996516EC113900DD990B /* Image.h */,
 				4C21996616EC113900DD990B /* Image.m */,
-				B05088E316EBD2CE00984484 /* UIImageValueTransformer.h */,
-				B05088E416EBD2CE00984484 /* UIImageValueTransformer.m */,
 				4CEFD3D416EEBC6600961754 /* Meal.h */,
 				4CEFD3D516EEBC6600961754 /* Meal.m */,
 			);
@@ -393,7 +388,6 @@
 			files = (
 				B05088B016EB8D9800984484 /* main.m in Sources */,
 				B05088B416EB8D9800984484 /* AppDelegate.m in Sources */,
-				B05088E516EBD2CE00984484 /* UIImageValueTransformer.m in Sources */,
 				4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */,
 				4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */,
 				4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */,

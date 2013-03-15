@@ -9,10 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+typedef enum : NSUInteger {
+    SavedImageQuialityLow,
+    SavedImageQuialityMedium,
+    SavedImageQuialityHigh
+} SavedImageQuiality;
+
 
 @interface Image : NSManagedObject
 
-@property (nonatomic, retain) id image;
+@property (nonatomic, retain) NSString * imagePath;
 @property (nonatomic, retain) NSDate * timestamp;
+@property (nonatomic, weak) UIImage *image;
 
 @end
