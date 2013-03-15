@@ -75,7 +75,7 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
     if ([filename isEqualToString:DEFAULT_STRING]) {
         NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
         
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSData *data = [[NSFileManager defaultManager] contentsAtPath:filePath];
         
         return [UIImage imageWithData:data];
     }
@@ -88,13 +88,12 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
     [self deleteImage];
     
     if (image) {
-        NSString *filename = [[@"Image " stringByAppendingFormat:@"%@ %d", [[NSDate date] description], fileNumber++] stringByAppendingPathExtension:@".jpg"];
+        NSString *filename = [[@"Image " stringByAppendingFormat:@"%@ %d", [[NSDate date] description], fileNumber++] stringByAppendingPathExtension:@"jpg"];
         NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
         
         NSData *data = UIImageJPEGRepresentation(image, compressionForImageQuality(imageQuality));
         
         [[NSFileManager defaultManager] createFileAtPath:filePath contents:data attributes:nil];
-//        [data writeToFile:filePath atomically:YES];
         
         [self setImagePath:filename];
     } else {
