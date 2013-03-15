@@ -18,7 +18,14 @@ static NSUInteger fileNumber = 0;
 
 static NSString *GrabImagesFolder()
 {
-    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:IMAGES_FOLDER];
+    NSString *images = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:IMAGES_FOLDER];
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [[NSFileManager defaultManager] createDirectoryAtPath:images withIntermediateDirectories:YES attributes:nil error:nil];
+    });
+    
+    return images;
 }
 
 /// A function to get the compression value for an
