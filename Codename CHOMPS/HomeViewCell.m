@@ -29,7 +29,7 @@
     self.imageView1.image = clearImage;
     self.imageView2.image = clearImage;
     self.imageView3.image = clearImage;
-    self.imageView4.image = clearImage;
+//    self.imageView4.image = clearImage;
 }
 
 - (void)setup
@@ -45,10 +45,13 @@
 - (void)setMeal:(Meal *)meal
 {
     _meal = meal;
-    self.timeLabel.text = [NSString stringWithFormat:@" %@", meal.timestamp];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateStyle = NSDateFormatterLongStyle;
+    df.timeStyle = NSDateFormatterShortStyle;
+    self.timeLabel.text = [df stringFromDate:meal.timestamp];
     
     int count = meal.images.count;
-    if (count > 4) count = 4;
+    if (count > 3) count = 3;
     
     NSEnumerator *imgs = [meal.images objectEnumerator];
     
@@ -56,8 +59,8 @@
         case 0:
             return;
             
-        case 4:
-            self.imageView4.image = [(Image *)[imgs nextObject] image];
+//        case 4:
+//            self.imageView4.image = [(Image *)[imgs nextObject] image];
         case 3:
             self.imageView3.image = [(Image *)[imgs nextObject] image];
         case 2:
@@ -80,7 +83,7 @@
 
 + (CGFloat)height
 {
-    return 100;
+    return 150;
 }
 
 @end

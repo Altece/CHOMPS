@@ -139,7 +139,6 @@
 		4CEFD38516ED491200961754 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4CEFD3BA16EEACC800961754 /* HomeViewHeader.xib */,
 				4CEFD38616ED4B8300961754 /* Check.png */,
 				4CEFD3BB16EEACC800961754 /* pizza.jpg */,
 			);
@@ -211,17 +210,13 @@
 				4C2B0B0616F2F31E00CC64F2 /* CoreMotionStuff.m */,
 				4CB37EDC16EBD80B005436D0 /* HomeViewController.h */,
 				4CB37EDD16EBD80B005436D0 /* HomeViewController.m */,
+				B0EBA2B016F40F3A00BD2354 /* HomeView Cells */,
 				4CB37EDF16EBE86E005436D0 /* ImagePickerController.h */,
 				4CB37EE016EBE86E005436D0 /* ImagePickerController.m */,
 				4CEFD37F16ED417A00961754 /* ImagePickerCell.h */,
 				4CEFD38016ED417A00961754 /* ImagePickerCell.m */,
 				4CEFD38216ED42D000961754 /* MealViewController.h */,
 				4CEFD38316ED42D000961754 /* MealViewController.m */,
-				4CEFD3B516EEACC800961754 /* HomeViewCell.h */,
-				4CEFD3B616EEACC800961754 /* HomeViewCell.m */,
-				4CEFD3B716EEACC800961754 /* HomeViewCell.xib */,
-				4CEFD3B816EEACC800961754 /* HomeViewHeader.h */,
-				4CEFD3B916EEACC800961754 /* HomeViewHeader.m */,
 				4CEFD3BC16EEACC800961754 /* UIImage+ColorImage.h */,
 				4CEFD3BD16EEACC800961754 /* UIImage+ColorImage.m */,
 				B05088DE16EBC82200984484 /* iPhoneMainStoryboard.storyboard */,
@@ -273,6 +268,19 @@
 				4CEFD3D516EEBC6600961754 /* Meal.m */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		B0EBA2B016F40F3A00BD2354 /* HomeView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4CEFD3B516EEACC800961754 /* HomeViewCell.h */,
+				4CEFD3B616EEACC800961754 /* HomeViewCell.m */,
+				4CEFD3B716EEACC800961754 /* HomeViewCell.xib */,
+				4CEFD3B816EEACC800961754 /* HomeViewHeader.h */,
+				4CEFD3B916EEACC800961754 /* HomeViewHeader.m */,
+				4CEFD3BA16EEACC800961754 /* HomeViewHeader.xib */,
+			);
+			name = "HomeView Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
