@@ -115,7 +115,9 @@
     
     NSLog(@"%@", meal.images);
     
-    [moc save:nil];
+    if ([saveImages count] < 1){
+        [moc save:nil];
+    }
     
     [self cancel:nil];
 }
