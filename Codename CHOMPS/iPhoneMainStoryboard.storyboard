@@ -206,6 +206,7 @@
         <scene sceneID="hDV-eY-dT6">
             <objects>
                 <navigationController definesPresentationContext="YES" id="YNP-kX-WwT" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lJr-Kh-xpF">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -267,9 +268,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

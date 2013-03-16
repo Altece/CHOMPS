@@ -79,7 +79,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [self updateMeals];
     [super viewDidAppear:animated];
@@ -97,6 +97,8 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO]];
     
     meals = [moc executeFetchRequest:req error:nil];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -198,6 +200,33 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     float yaw = currentAttitude.yaw;
     
     NSLog(@"Roll:%.2f Pitch:%.2f Yaw:%.2f", roll, pitch, yaw);
+}
+
+#pragma mark - Rotations
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+- (UIInterfaceOrientation)interfaceOrientation
+{
+    return UIInterfaceOrientationPortrait;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
 }
 
 @end
