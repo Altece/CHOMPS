@@ -16,8 +16,8 @@ static NSString *HOME_CELL = @"HomeViewCell";
 static NSString *HOME_HEADER = @"HomeViewHeader";
 
 @interface HomeViewController () {
-    /// A controller to manage CoreData info on a table view.
-    __strong NSFetchedResultsController *frc;
+    NSManagedObjectContext *moc;
+    __strong NSArray *meals;
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -56,11 +56,8 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     /// CoreData stuff
-    NSManagedObjectContext *moc = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Meal"];
-    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO]];
-    frc = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:moc sectionNameKeyPath:nil cacheName:@"Root"];
-    frc.delegate = self;
+    moc = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    [self updateMeals];
     
     // table view setup
     self.tableView.backgroundColor = [UIColor blackColor];
@@ -82,9 +79,24 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self updateMeals];
+    [super viewDidAppear:animated];
+}
+
+- (void)dealloc
+{
+    meals = nil;
+    moc = nil;
+}
+
+- (void)updateMeals
+{
+    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Meal"];
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO]];
+    
+    meals = [moc executeFetchRequest:req error:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,8 +116,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
 /// Number of Rows
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id sectionInfo = [[frc sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    return [meals count];
 }
 
 
@@ -113,7 +124,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
 {
     if ([cell isKindOfClass:[HomeViewCell class]]) {
         HomeViewCell *c = (HomeViewCell *)cell;
-        Meal *meal = [frc objectAtIndexPath:indexPath];
+        Meal *meal = meals[indexPath.row];
         c.meal = meal;        
     }
 }

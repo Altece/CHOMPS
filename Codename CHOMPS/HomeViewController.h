@@ -16,6 +16,8 @@
 @property (nonatomic, retain) NSIndexPath *checkedIndexPath;
 @property (nonatomic, retain) CMMotionManager *motionManager;
 
+- (void)updateMeals;
+
 - (IBAction)launchCamera:(id)sender;
 
 @end
