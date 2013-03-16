@@ -87,53 +87,48 @@
     
     NSLog(@"Done Called");
     
+    NSManagedObjectContext *moc = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    
     // Sort images
     NSMutableArray *saveImages = [[NSMutableArray alloc] init]; // Array of timestamps
-    NSMutableArray *removeImages = [[NSMutableArray alloc] init];
     
     // Going through all images and adding the objects at idices
     for (int i=0; i< _takenImageObjectID.count; i++) {
         ImagePickerCell *cell = (ImagePickerCell *)[_imageCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        
+        Image *tmp = _takenImageObjectID[i];
         if (cell.selectedForUse) {
             // Save to meal
-            [setOfImages addObject:_takenImageObjectID[i]];
-            
+            [saveImages addObject:tmp];
         } else {
-            // Remove from core data
-//            [removeImages addObject:cell.date];
+            [moc deleteObject:tmp];
         }
         
     }
 
 
     // Create Meal
-    NSManagedObjectContext *moc = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     Meal *meal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:moc];
-
+    
     [meal addImages:[NSSet setWithArray:saveImages]];
-
+    [meal setTimestamp:[NSDate date]];
     
     NSLog(@"%@", meal.images);
     
     [moc save:nil];
 }
 
-- (IBAction)cancel:(id)sender {
+- (IBAction)cancel:(id)sender
+{
+    
 }
 
 - (IBAction)addMoreImages:(id)sender
 {
-    [self performSegueWithIdentifier:@"returnToCamera" sender:_takenImageObjectID];
+    
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([(NSMutableArray *)sender count] == _takenImageObjectID.count) {
-        
-        NSLog(@"?");
-        
-    }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{    
     
 }
 

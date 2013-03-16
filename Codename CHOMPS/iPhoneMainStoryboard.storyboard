@@ -119,18 +119,15 @@
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YMW-ff-7Vo">
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="OzI-et-0T4"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zWq-fU-cZ9">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zWq-fU-cZ9">
                                     <size key="itemSize" width="140" height="131"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="Xoi-lI-zoX" customClass="ImagePickerCell">
-                                        <rect key="frame" x="10" y="9" width="140" height="131"/>
+                                        <rect key="frame" x="15" y="10" width="140" height="131"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="131"/>
@@ -161,15 +158,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="phG-Ae-gki">
-                                <segments>
-                                    <segment title="Breakfast"/>
-                                    <segment title="Lunch"/>
-                                    <segment title="Dinner"/>
-                                    <segment title="Snack"/>
-                                </segments>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </segmentedControl>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfZ-Ip-xnn">
                                 <items>
                                     <barButtonItem systemItem="camera" id="p2i-Li-R8j">
@@ -177,10 +165,16 @@
                                             <action selector="addMoreImages:" destination="zOX-TZ-Sit" id="lSP-P9-Xhj"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="207" style="plain" systemItem="fixedSpace" id="MU2-RX-ct7"/>
+                                    <barButtonItem width="74" style="plain" systemItem="fixedSpace" id="MU2-RX-ct7"/>
                                     <barButtonItem systemItem="done" id="xXW-zy-vkG">
                                         <connections>
                                             <action selector="saveSelectedImages:" destination="zOX-TZ-Sit" id="AOP-bW-bFa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="62" style="plain" systemItem="fixedSpace" id="Tqo-gy-ZTk"/>
+                                    <barButtonItem title="Item" systemItem="cancel" id="1ma-Bk-dFr">
+                                        <connections>
+                                            <action selector="cancel:" destination="zOX-TZ-Sit" id="QY5-TA-SHT"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -188,12 +182,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="phG-Ae-gki" firstAttribute="trailing" secondItem="3Py-5a-ArL" secondAttribute="trailing" type="default" id="5JR-6z-NPq"/>
-                            <constraint firstItem="phG-Ae-gki" firstAttribute="top" secondItem="3Py-5a-ArL" secondAttribute="top" constant="176" id="Dbn-he-6sR"/>
                             <constraint firstItem="YMW-ff-7Vo" firstAttribute="trailing" secondItem="3Py-5a-ArL" secondAttribute="trailing" type="default" id="Hb3-Fv-Te3"/>
                             <constraint firstItem="YMW-ff-7Vo" firstAttribute="leading" secondItem="3Py-5a-ArL" secondAttribute="leading" type="default" id="UuZ-fs-30R"/>
                             <constraint firstItem="UfZ-Ip-xnn" firstAttribute="bottom" secondItem="3Py-5a-ArL" secondAttribute="bottom" type="default" id="Wrp-8l-ogA"/>
-                            <constraint firstItem="phG-Ae-gki" firstAttribute="leading" secondItem="3Py-5a-ArL" secondAttribute="leading" type="default" id="kuW-8m-h9C"/>
+                            <constraint firstItem="UfZ-Ip-xnn" firstAttribute="top" secondItem="YMW-ff-7Vo" secondAttribute="bottom" type="default" id="drO-Vc-zxO"/>
                             <constraint firstItem="UfZ-Ip-xnn" firstAttribute="leading" secondItem="3Py-5a-ArL" secondAttribute="leading" type="default" id="nJD-DB-UlY"/>
                             <constraint firstItem="YMW-ff-7Vo" firstAttribute="top" secondItem="3Py-5a-ArL" secondAttribute="top" type="default" id="pWg-g8-Hfl"/>
                             <constraint firstItem="UfZ-Ip-xnn" firstAttribute="trailing" secondItem="3Py-5a-ArL" secondAttribute="trailing" type="default" id="yhR-Tg-cnw"/>
@@ -201,12 +193,11 @@
                     </view>
                     <connections>
                         <outlet property="imageCollectionView" destination="YMW-ff-7Vo" id="5Qc-xw-FMZ"/>
-                        <segue destination="oCM-Dw-4p0" kind="modal" identifier="returnToCamera" id="txq-3d-CK5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffX-fN-1ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1058" y="-644"/>
+            <point key="canvasLocation" x="1056" y="-652"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hDV-eY-dT6">
@@ -227,12 +218,57 @@
     <resources>
         <image name="Check.png" width="150" height="150"/>
     </resources>
+    <classes>
+        <class className="CameraViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="isDoneTakingPictures:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loadingActivity" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="loadingText" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HomeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="launchCamera:"/>
+            </relationships>
+        </class>
+        <class className="ImagePickerCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkBox" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ImagePickerController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerController.h"/>
+            <relationships>
+                <relationship kind="action" name="addMoreImages:"/>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="saveSelectedImages:"/>
+                <relationship kind="outlet" name="imageCollectionView" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="MealViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MealViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="8a4-xv-MjK"/>
-    </inferredMetricsTieBreakers>
 </document>
