@@ -71,14 +71,17 @@
     if (![app.window.rootViewController isKindOfClass:[CameraViewController class]]){
 
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"iPhoneMainStoryboard" bundle:nil];
+
         HomeViewController *hvc = [story instantiateViewControllerWithIdentifier:@"Home"];
-        [app.window.rootViewController presentViewController:hvc animated:NO completion:nil];
+        
+        [app.window.rootViewController addChildViewController:hvc];
+        
         [hvc performSegueWithIdentifier:@"cameraSegue" sender:nil];
     }
 }
 
 - (void)dismissCamera {
-    CameraViewController *camera = app.window.rootViewController;
+    CameraViewController *camera = (CameraViewController *)app.window.rootViewController;
     if([camera respondsToSelector:@selector(isDoneTakingPictures:)]){
         [camera isDoneTakingPictures:nil];
         NSLog(@"Success");

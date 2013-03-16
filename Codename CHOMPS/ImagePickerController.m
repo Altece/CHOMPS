@@ -13,6 +13,7 @@
 #import "ImagePickerController.h"
 #import "ImagePickerCell.h"
 #import "CameraViewController.h"
+#import "HomeViewController.h"
 
 @interface ImagePickerController ()
 
@@ -114,12 +115,16 @@
     
     NSLog(@"%@", meal.images);
     
-    [moc save:nil];
+    if ([saveImages count] < 1){
+        [moc save:nil];
+    }
+    
+    [self cancel:nil];
 }
 
 - (IBAction)cancel:(id)sender
 {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)addMoreImages:(id)sender

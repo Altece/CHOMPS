@@ -21,6 +21,7 @@
     UITapGestureRecognizer *takePicture;
     NSMutableArray *objectIDs;
     BOOL doneTakingImages;
+    BOOL goingBackToRoot;
     UIView *shutter;
     NSOperationQueue *cameraSave;
 }
@@ -34,13 +35,18 @@
     takePicture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(takePicture:)];
     [self.view addGestureRecognizer:takePicture];
     doneTakingImages = NO;
-    
+    goingBackToRoot = NO;
     cameraSave = [[NSOperationQueue alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     if (doneTakingImages) {
-        [self performSegueWithIdentifier:@"toImagePicker" sender:nil];
+        if (goingBackToRoot) {
+            [self dismissViewControllerAnimated:NO completion:nil];
+        } else {
+            [self performSegueWithIdentifier:@"toImagePicker" sender:nil];
+            goingBackToRoot = YES;
+        }
     } else {
         camera = [[UIImagePickerController alloc] init];
         [camera setSourceType:UIImagePickerControllerSourceTypeCamera];
