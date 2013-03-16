@@ -58,12 +58,10 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 
 @end
 
-
 @implementation Image
 
-@dynamic image;
-@dynamic imagePath;
 @dynamic timestamp;
+@dynamic imagePath;
 
 #pragma mark - get/set compression quality
 
