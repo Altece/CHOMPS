@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4C2B0B0716F2F31E00CC64F2 /* CoreMotionStuff.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B0B0616F2F31E00CC64F2 /* CoreMotionStuff.m */; };
+		4CA6329916F40AAB00644367 /* splashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA6329616F40AAB00644367 /* splashScreen.png */; };
+		4CA6329B16F40ABE00644367 /* chompsIcon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA6329A16F40ABE00644367 /* chompsIcon_57.png */; };
+		4CA6329D16F40ACD00644367 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA6329C16F40ACD00644367 /* Default-568h@2x.png */; };
 		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
 		4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EDD16EBD80B005436D0 /* HomeViewController.m */; };
 		4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE016EBE86E005436D0 /* ImagePickerController.m */; };
@@ -58,6 +61,9 @@
 /* Begin PBXFileReference section */
 		4C2B0B0516F2F31E00CC64F2 /* CoreMotionStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreMotionStuff.h; sourceTree = "<group>"; };
 		4C2B0B0616F2F31E00CC64F2 /* CoreMotionStuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreMotionStuff.m; sourceTree = "<group>"; };
+		4CA6329616F40AAB00644367 /* splashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashScreen.png; sourceTree = "<group>"; };
+		4CA6329A16F40ABE00644367 /* chompsIcon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chompsIcon_57.png; sourceTree = "<group>"; };
+		4CA6329C16F40ACD00644367 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4CB37ED316EBD666005436D0 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		4CB37ED416EBD666005436D0 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		4CB37EDC16EBD80B005436D0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 		4CEFD38516ED491200961754 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4CA6329616F40AAB00644367 /* splashScreen.png */,
 				4CEFD3BA16EEACC800961754 /* HomeViewHeader.xib */,
 				4CEFD38616ED4B8300961754 /* Check.png */,
 				4CEFD3BB16EEACC800961754 /* pizza.jpg */,
@@ -167,6 +174,8 @@
 		B050889516EB8D9800984484 = {
 			isa = PBXGroup;
 			children = (
+				4CA6329C16F40ACD00644367 /* Default-568h@2x.png */,
+				4CA6329A16F40ABE00644367 /* chompsIcon_57.png */,
 				4CEFD3D616EEBC6600961754 /* en.lproj */,
 				4CEFD3BE16EEACC800961754 /* en.lproj */,
 				B05088A916EB8D9800984484 /* Codename CHOMPS */,
@@ -357,6 +366,9 @@
 				4CEFD3C516EEACC800961754 /* pizza.jpg in Resources */,
 				4CEFD3C716EEACC800961754 /* InfoPlist.strings in Resources */,
 				4CEFD3DA16EEBC6600961754 /* InfoPlist.strings in Resources */,
+				4CA6329916F40AAB00644367 /* splashScreen.png in Resources */,
+				4CA6329B16F40ABE00644367 /* chompsIcon_57.png in Resources */,
+				4CA6329D16F40ACD00644367 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

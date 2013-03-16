@@ -82,6 +82,10 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
 
 - (void)didReceiveMemoryWarning
 {
