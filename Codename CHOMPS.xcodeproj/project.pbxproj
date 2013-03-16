@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2B0B0716F2F31E00CC64F2 /* CoreMotionStuff.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B0B0616F2F31E00CC64F2 /* CoreMotionStuff.m */; };
 		4CB37ED516EBD666005436D0 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37ED416EBD666005436D0 /* CameraViewController.m */; };
 		4CB37EDE16EBD80B005436D0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EDD16EBD80B005436D0 /* HomeViewController.m */; };
 		4CB37EE116EBE86E005436D0 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB37EE016EBE86E005436D0 /* ImagePickerController.m */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C2B0B0516F2F31E00CC64F2 /* CoreMotionStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreMotionStuff.h; sourceTree = "<group>"; };
+		4C2B0B0616F2F31E00CC64F2 /* CoreMotionStuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreMotionStuff.m; sourceTree = "<group>"; };
 		4CB37ED316EBD666005436D0 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		4CB37ED416EBD666005436D0 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		4CB37EDC16EBD80B005436D0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 				B05088B316EB8D9800984484 /* AppDelegate.m */,
 				4CB37ED316EBD666005436D0 /* CameraViewController.h */,
 				4CB37ED416EBD666005436D0 /* CameraViewController.m */,
+				4C2B0B0516F2F31E00CC64F2 /* CoreMotionStuff.h */,
+				4C2B0B0616F2F31E00CC64F2 /* CoreMotionStuff.m */,
 				4CB37EDC16EBD80B005436D0 /* HomeViewController.h */,
 				4CB37EDD16EBD80B005436D0 /* HomeViewController.m */,
 				4CB37EDF16EBE86E005436D0 /* ImagePickerController.h */,
@@ -399,6 +404,7 @@
 				4CEFD3C616EEACC800961754 /* UIImage+ColorImage.m in Sources */,
 				4CEFD3D916EEBC6600961754 /* Meal.m in Sources */,
 				B0EBA27516F2CF7A00BD2354 /* Image.m in Sources */,
+				4C2B0B0716F2F31E00CC64F2 /* CoreMotionStuff.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

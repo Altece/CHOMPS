@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "CoreMotionStuff.h"
 
-@implementation AppDelegate
+@implementation AppDelegate{
+    CMMotionManager *motionmanager;
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -16,7 +19,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    CoreMotionStuff *cms = [[CoreMotionStuff alloc] init];
+    
     return YES;
+}
+
+- (CMMotionManager *)sharedManager
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        motionmanager = [[CMMotionManager alloc] init];
+    });
+    return motionmanager;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
