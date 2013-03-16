@@ -116,6 +116,8 @@
     NSLog(@"%@", meal.images);
     
     [moc save:nil];
+    
+    [self cancel:nil];
 }
 
 - (IBAction)cancel:(id)sender

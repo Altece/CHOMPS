@@ -16,7 +16,8 @@
 			<array>
 				<string>new_icon57.png</string>
 				<string>new_icon114.png</string>
-				<string>chompsIcon_57.png</string>
+				<string>chomps_icon57.png</string>
+				<string>chomps_icon114.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
