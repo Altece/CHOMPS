@@ -19,8 +19,16 @@ static NSUInteger fileNumber = 0;
 static NSString *GrabImagesFolder()
 {
     NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *imagesPath = [documents stringByAppendingPathComponent:IMAGES_FOLDER];
     
-    return documents;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (![[NSFileManager defaultManager] fileExistsAtPath:imagesPath]) {
+            [[NSFileManager defaultManager] createDirectoryAtPath:imagesPath withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+    });
+    
+    return imagesPath;
 }
 
 /// A function to get the compression value for an
@@ -74,12 +82,9 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 - (UIImage *)image
 {
     NSString *filename = [self imagePath];
-    if ([filename isEqualToString:DEFAULT_STRING]) {
+    if (![filename isEqualToString:DEFAULT_STRING]) {
         NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
-        
-        NSData *data = [[NSFileManager defaultManager] contentsAtPath:filePath];
-        
-        return [UIImage imageWithData:data];
+        return [UIImage imageWithContentsOfFile:filePath];
     }
     
     return nil;
@@ -87,7 +92,7 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 
 - (void)setImage:(UIImage *)image
 {
-    // TODO: Delete previous image before setting the new one
+    [self deleteImage];
     if (image) {
         NSString *filename = [NSString stringWithFormat:@"Image - %@ %d.jpg", [[NSDate date] description], fileNumber++];
         NSString *savedImagePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
@@ -105,8 +110,8 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 {
     NSString *filename = [self imagePath];
     if (![filename isEqualToString:DEFAULT_STRING]) {
-        NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
-        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+        NSString *savedImagePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
+        [[NSFileManager defaultManager] removeItemAtPath:savedImagePath error:nil];
     }
 }
 
