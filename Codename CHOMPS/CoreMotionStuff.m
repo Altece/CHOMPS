@@ -49,6 +49,7 @@
             [motionManager stopDeviceMotionUpdates];
             [_coreMotionQueue cancelAllOperations];
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                NSLog(@"Test");
                 [self dismissCamera];
             }];
             sleep(1);
@@ -77,11 +78,12 @@
 }
 
 - (void)dismissCamera {
-    if ([app.window.rootViewController isKindOfClass:[CameraViewController class]]){
-        NSLog(@"Go Aways");
-        CameraViewController *camera = (CameraViewController *)app.window.rootViewController;
+    CameraViewController *camera = app.window.rootViewController;
+    if([camera respondsToSelector:@selector(isDoneTakingPictures:)]){
         [camera isDoneTakingPictures:nil];
-        
+        NSLog(@"Success");
+    } else {
+        NSLog(@"Did not respond : %@", [app.window.rootViewController class]);
     }
 }
 
