@@ -52,7 +52,7 @@ static NSString *HOME_HEADER = @"HomeViewHeader";
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Codename CHOMPS";
+    self.navigationItem.title = @"CHOMPS";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     /// CoreData stuff
