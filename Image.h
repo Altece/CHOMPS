@@ -15,11 +15,15 @@ typedef enum : NSUInteger {
     SavedImageQuialityHigh
 } SavedImageQuiality;
 
-
 @interface Image : NSManagedObject
 
 @property (nonatomic, retain) NSDate * timestamp;
 @property (nonatomic, retain) NSString * imagePath;
-@property (nonatomic) UIImage *image;
+
+- (UIImage *)image;
+- (void)setImage:(UIImage *)image;
+
++ (void)setImageQuality:(SavedImageQuiality)quality;
++ (SavedImageQuiality)imageQuality;
 
 @end

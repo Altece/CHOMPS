@@ -19,12 +19,16 @@ static NSUInteger fileNumber = 0;
 static NSString *GrabImagesFolder()
 {
     NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *images = documents; //[documents stringByAppendingPathComponent:IMAGES_FOLDER];
+    NSString *imagesPath = [documents stringByAppendingPathComponent:IMAGES_FOLDER];
     
-//    if (! [[NSFileManager defaultManager] fileExistsAtPath:images isDirectory:nil])
-        [[NSFileManager defaultManager] createDirectoryAtPath:images withIntermediateDirectories:YES attributes:nil error:nil];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (![[NSFileManager defaultManager] fileExistsAtPath:imagesPath]) {
+            [[NSFileManager defaultManager] createDirectoryAtPath:imagesPath withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+    });
     
-    return images;
+    return imagesPath;
 }
 
 /// A function to get the compression value for an
@@ -78,12 +82,9 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 - (UIImage *)image
 {
     NSString *filename = [self imagePath];
-    if ([filename isEqualToString:DEFAULT_STRING]) {
+    if (![filename isEqualToString:DEFAULT_STRING]) {
         NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
-        
-        NSData *data = [[NSFileManager defaultManager] contentsAtPath:filePath];
-        
-        return [UIImage imageWithData:data];
+        return [UIImage imageWithContentsOfFile:filePath];
     }
     
     return nil;
@@ -91,13 +92,16 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 
 - (void)setImage:(UIImage *)image
 {
-    NSString *timestamp = [[NSDate date] description];
-    NSString *filename = [NSString stringWithFormat:@"%@.jpg", timestamp];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:filename];
-    NSData *imageData = UIImagePNGRepresentation(image);
-    [imageData writeToFile:savedImagePath atomically:NO];
+    [self deleteImage];
+    if (image) {
+        NSString *filename = [NSString stringWithFormat:@"Image - %@ %d.jpg", [[NSDate date] description], fileNumber++];
+        NSString *savedImagePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
+        NSData *imageData = UIImageJPEGRepresentation(image, compressionForImageQuality(imageQuality));
+        [imageData writeToFile:savedImagePath atomically:NO];
+        [self setImagePath:filename];
+    } else {
+        [self setImagePath:DEFAULT_STRING];
+    }
 }
 
 #pragma mark - Deleting Things
@@ -106,8 +110,8 @@ static CGFloat compressionForImageQuality(SavedImageQuiality quality)
 {
     NSString *filename = [self imagePath];
     if (![filename isEqualToString:DEFAULT_STRING]) {
-        NSString *filePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
-        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+        NSString *savedImagePath = [GrabImagesFolder() stringByAppendingPathComponent:filename];
+        [[NSFileManager defaultManager] removeItemAtPath:savedImagePath error:nil];
     }
 }
 
