@@ -10,8 +10,16 @@
 #import "UIImage+ColorImage.h"
 #import "Image.h"
 
+static NSOperationQueue *imageCellImageLoaderQueue;
+
 @implementation HomeViewCell {
     __strong UIImage *clearImage;
+}
+
++ (void)initialize
+{
+    imageCellImageLoaderQueue = [[NSOperationQueue alloc] init];
+    imageCellImageLoaderQueue.name = @"ImageCellImageLoaderQueue";
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -55,23 +63,42 @@
     
     NSEnumerator *imgs = [meal.images objectEnumerator];
     
-    switch (count) {
-        case 0:
-            return;
-            
-//        case 4:
-//            self.imageView4.image = [(Image *)[imgs nextObject] image];
-        case 3:
-            self.imageView3.image = [(Image *)[imgs nextObject] image];
-        case 2:
-            self.imageView2.image = [(Image *)[imgs nextObject] image];
-        case 1:
-            self.imageView1.image = [(Image *)[imgs nextObject] image];
-            break;
-            
-        default:
-            break;
-    }
+    [imageCellImageLoaderQueue addOperationWithBlock:^{
+        UIImage *i1, *i2, *i3;
+        
+        switch (count) {
+            case 0:
+                return;
+                
+            case 3:
+                i3 = [(Image *)[imgs nextObject] image];
+            case 2:
+                i2 = [(Image *)[imgs nextObject] image];
+            case 1:
+                i1 = [(Image *)[imgs nextObject] image];
+                break;
+                
+            default:
+                break;
+        }
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            switch (count) {
+                case 0:
+                    return;
+                    
+                case 3:
+                    self.imageView3.image = i3;
+                case 2:
+                    self.imageView2.image = i2;
+                case 1:
+                    self.imageView1.image = i1;
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
+    }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
